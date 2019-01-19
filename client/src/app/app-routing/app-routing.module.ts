@@ -5,6 +5,7 @@ import { MenuUnComponent } from '../menu-un/menu-un.component';
 import { MenuDeuxComponent } from '../menu-deux/menu-deux.component';
 
 const routes: Routes = [
+    { path: '', redirectTo: 'home', pathMatch: 'full'},
     { path: 'menu1', component: MenuUnComponent },
     { path: 'menu2', component: MenuDeuxComponent },
 ];
