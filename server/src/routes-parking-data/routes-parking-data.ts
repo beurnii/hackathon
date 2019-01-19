@@ -1,10 +1,7 @@
 import { injectable } from 'inversify';
 import { WebService } from '../WebService';
 import { Router, Request, Response } from 'express';
-import * as fs from 'fs';
 const csv = require('csvtojson');
-// const csv = require('csv-parser');
-// import * as csv from 'csv-parser';
 
 @injectable()
 export class RoutesParkingData extends WebService {
