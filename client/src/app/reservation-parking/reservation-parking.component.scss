@@ -3,22 +3,25 @@
 
 
 #form-container {
+    font-family: Calibri, sans-serif;
     padding: 0;
     margin: 0;
     text-align: center;
 
     form {
         display: inline-block;
-        width: 85%;
+        width: 60%;
         margin: 0 auto;
-
+        background-color: rgba(128, 128, 128, 0.05);
+        border-radius: $border-radius-form;
+        padding: 15px;
+        
         .form-group {
             display: block;
 
             .titre-label {
                 display: block;
                 margin-top: 15px;
-                font-family: Calibri, sans-serif;
                 font-size: 16px;
                 font-weight: bold;
                 text-align: left;
@@ -30,7 +33,7 @@
                 margin-top: 5px;
                 border-width: 1px;
                 border-radius: $border-radius-form;
-                border-color: rgba(128, 128, 128, 0.5);
+                border-color: rgba(0, 0, 0, 0.25);
 
                 font-size: 16px;
             }
@@ -43,8 +46,19 @@
             }
             
             .register-button {
-                display: block;
+                float: right;
                 margin-top: 25px;
+                
+                border-radius: $border-radius-form;
+                border-width: 0px;
+                font-size: 16px;
+                padding: 10px 25px;
+                background-color: rgba(105, 112, 206, 0.3);
+                
+                &:hover {
+                    background-color: rgba(105, 112, 206, 0.6);
+                    cursor: pointer;
+                }
             }
         }
         
