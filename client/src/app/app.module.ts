@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatIconModule } from '@angular/material/icon';
+import { MatIconModule, MatToolbarModule } from '@angular/material';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { AppComponent } from './app.component';
@@ -30,6 +30,7 @@ import { DataService } from './data/data.service';
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
+        MatToolbarModule,
         MatIconModule,
         MatSidenavModule,
         MatButtonModule,
@@ -37,7 +38,7 @@ import { DataService } from './data/data.service';
         FormsModule,
         HttpClientModule,
         AgmCoreModule.forRoot({
-            apiKey: 'AIzaSyAUcuAVxaXeDLmc8qLm8uvpHhUW5Waw5zQ'
+            apiKey: 'AIzaSyA7JRDXYs52tiEAC3fyJ3qdYnnXZtD1MsM'
         })
     ],
     providers: [DataService],
