@@ -9,6 +9,9 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 
 import { FormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
+import { DataComponent } from './data/data.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DataService } from './data/data.service';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 
 @NgModule({
@@ -16,7 +19,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
         AppComponent,
         TopMenuComponent,
         FooterComponent,
-        LandingPageComponent
+        LandingPageComponent,
+        DataComponent
     ],
     imports: [
         BrowserModule,
@@ -28,11 +32,12 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
         MatButtonModule,
         AppRoutingModule,
         FormsModule,
+        HttpClientModule,
         AgmCoreModule.forRoot({
             apiKey: 'AIzaSyA7JRDXYs52tiEAC3fyJ3qdYnnXZtD1MsM'
         })
     ],
-    providers: [],
+    providers: [DataService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

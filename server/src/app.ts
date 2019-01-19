@@ -8,6 +8,7 @@ import { injectable, inject } from 'inversify';
 import { WebService } from './WebService';
 import { RoutesForm } from './RoutesForm';
 import Types from './Types';
+import { RoutesParkingData } from './routes-parking-data/routes-parking-data';
 
 @injectable()
 export class App {
@@ -16,7 +17,8 @@ export class App {
 
     private app: express.Application;
 
-    public constructor(@inject(Types.RoutesForm) private routeForm: RoutesForm) {
+    public constructor(@inject(Types.RoutesForm) private routeForm: RoutesForm,
+                       @inject(Types.RoutesParkingData) private routesParkingData: RoutesParkingData) {
         this.app = express();
     }
 
@@ -69,6 +71,7 @@ export class App {
 
         // this.addRoute(/*SERVICE*/);
         this.addRoute(this.routeForm);
+        this.addRoute(this.routesParkingData);
 
         this.errorHandeling();
     }
