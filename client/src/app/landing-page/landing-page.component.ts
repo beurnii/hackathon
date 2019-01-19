@@ -8,6 +8,7 @@ import {DataService} from './data.service';
     styleUrls: ['./landing-page.component.scss']
 })
 export class LandingPageComponent implements OnInit  {
+    // tslint:disable-next-line:no-any
     protected data: Array<any>;
 
     public title: string = 'TITRE';
@@ -16,7 +17,6 @@ export class LandingPageComponent implements OnInit  {
 
     public async ngOnInit(): Promise<void> {
         this.data = await this.dataService.getParkingData();
-        console.log(this.data);
     }
 
     public constructor(private router: Router,
