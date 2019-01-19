@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatIconModule } from '@angular/material/icon';
+import { MatIconModule, MatToolbarModule } from '@angular/material';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { AppComponent } from './app.component';
@@ -14,6 +14,9 @@ import { MenuDeuxComponent } from './menu-deux/menu-deux.component';
 import { FormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 import { ReservationParkingComponent } from './reservation-parking/reservation-parking.component';
+import { DataComponent } from './data/data.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DataService } from './data/data.service';
 
 @NgModule({
     declarations: [
@@ -23,21 +26,24 @@ import { ReservationParkingComponent } from './reservation-parking/reservation-p
         FooterComponent,
         MenuUnComponent,
         MenuDeuxComponent,
-        ReservationParkingComponent
+        ReservationParkingComponent,
+        DataComponent
     ],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
+        MatToolbarModule,
         MatIconModule,
         MatSidenavModule,
         MatButtonModule,
         AppRoutingModule,
         FormsModule,
+        HttpClientModule,
         AgmCoreModule.forRoot({
             apiKey: 'AIzaSyA7JRDXYs52tiEAC3fyJ3qdYnnXZtD1MsM'
         })
     ],
-    providers: [],
+    providers: [DataService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
