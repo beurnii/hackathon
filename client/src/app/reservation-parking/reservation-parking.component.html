@@ -18,16 +18,14 @@
         </div>
         <div class="form-group">
             <label class="titre-label" for="temps">Temps (minutes)</label>
-            <div class="form-control">
-                <select name="temps" [(ngModel)]="model.temps" #temps="ngModel" [ngClass]="{ 'is-invalid': f.submitted && temps.invalid }" required>
-                    <option value="15">15 minutes</option>
-                    <option value="30">30 minutes</option>
-                    <option value="45">45 minutes</option>
-                    <option value="60">60 minutes</option>
-                </select>
-                <div *ngIf="f.submitted && temps.invalid" class="invalid-feedback">
-                    <div *ngIf="temps.errors.required">Temps is required</div>
-                </div>
+            <select name="temps" class="form-control" [(ngModel)]="model.temps" #temps="ngModel" [ngClass]="{ 'is-invalid': f.submitted && temps.invalid }" required>
+                <option value="15">15 minutes</option>
+                <option value="30">30 minutes</option>
+                <option value="45">45 minutes</option>
+                <option value="60">60 minutes</option>
+            </select>
+            <div *ngIf="f.submitted && temps.invalid" class="invalid-feedback">
+                <div *ngIf="temps.errors.required">Temps is required</div>
             </div>
         </div>
         <div class="form-group">
