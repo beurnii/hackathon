@@ -19,9 +19,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
         AppComponent,
         TopMenuComponent,
         FooterComponent,
-        LandingPageComponent
-        MenuUnComponent,
-        MenuDeuxComponent,
+        LandingPageComponent,
         DataComponent
     ],
     imports: [
