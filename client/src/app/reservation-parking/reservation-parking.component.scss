@@ -28,7 +28,9 @@
             }
             
             .form-control {
+                // display: -webkit-box;
                 display: block;
+                text-align: left;
                 width: 250px;
                 margin-top: 5px;
                 border-width: 1px;
@@ -36,6 +38,10 @@
                 border-color: rgba(0, 0, 0, 0.25);
 
                 font-size: 16px;
+
+                .checkbox-input {
+                    margin: 0 5px;
+                }
             }
             
             .is-invalid {
