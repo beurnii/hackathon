@@ -1,4 +1,3 @@
-import { Router } from '@angular/router';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -10,9 +9,5 @@ export class TopMenuComponent {
     @Input()
     public myCallback: Function;
 
-    public constructor(private router: Router) { }
-
-    public navigate(uri: string): void {
-        this.router.navigateByUrl(uri);
-    }
+    public constructor() { }
 }

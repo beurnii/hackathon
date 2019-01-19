@@ -7,22 +7,6 @@
     background-color: $color-main;
     justify-content: center;
     font-family: 'Marker Felt', fantasy;
-
-    .mat-icon {
-        @include material-icons();
-        height: $top-menu-height;
-        width: $top-menu-height;
-        font-size: 30px;                // Must be placed after the include orelse it gets overwrited.
-        line-height: $top-menu-height;  // Must be placed after the include orelse it gets overwrited.
-        cursor: pointer;                // Must be placed after the include orelse it gets overwrited.
-        text-align: center;
-        color: #b3cde0;
-        float: right;
-
-        &:hover {
-            color: $white;
-        }
-    }
 }
 
 .top-menu #toolbar .title {
@@ -36,4 +20,28 @@
     cursor: pointer;
     padding-left: 5px;
     padding-right: 5px;
+}
+
+.maindiv {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+mat-card {
+    background-color: $color-main;
+    color: #b3cde0;
+}
+
+.leftContainer{
+    margin-top:15%;
+    max-width: 50%;
+    border-radius:5px;
+}
+
+.rightContainer{
+    margin-top:15%;
+    max-width: 50%;
+    border-radius:5px;
 }

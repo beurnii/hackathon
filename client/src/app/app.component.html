@@ -1,11 +1,3 @@
-<mat-sidenav-container id='sidenav-container'>
-    <mat-sidenav #sidenav mode='over' id='sidenav'>
-        <app-sidenav-menu></app-sidenav-menu>
-    </mat-sidenav>
-    
-    <mat-sidenav-content>
-        <app-top-menu [myCallback]='_sidenavCallbackFunction'></app-top-menu>
-        <router-outlet></router-outlet>
-    </mat-sidenav-content>
-</mat-sidenav-container>
-
+<app-top-menu></app-top-menu>
+<router-outlet></router-outlet>
+<app-landing-page></app-landing-page>
