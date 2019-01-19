@@ -6,23 +6,20 @@ import { AppComponent } from './app.component';
 import { TopMenuComponent } from './common/top-menu/top-menu.component';
 import { FooterComponent } from './common/footer/footer.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
-
 import { FormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
-import { ReservationParkingComponent } from './reservation-parking/reservation-parking.component';
-import { DataComponent } from './data/data.component';
 import { HttpClientModule } from '@angular/common/http';
-import { DataService } from './data/data.service';
+import { DataService } from './landing-page/data.service';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { ReservationParkingComponent } from './reservation-parking/reservation-parking.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         TopMenuComponent,
         FooterComponent,
-        ReservationParkingComponent,
         LandingPageComponent,
-        DataComponent
+        ReservationParkingComponent
     ],
     imports: [
         BrowserModule,
