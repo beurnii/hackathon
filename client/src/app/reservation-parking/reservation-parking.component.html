@@ -23,13 +23,14 @@
                 <option value="30">30 minutes</option>
                 <option value="45">45 minutes</option>
                 <option value="60">60 minutes</option>
+                <option value="75">75 minutes</option>
+                <option value="90">90 minutes</option>
+                <option value="105">105 minutes</option>
+                <option value="120">120 minutes</option>
             </select>
             <div *ngIf="f.submitted && temps.invalid" class="invalid-feedback">
                 <div *ngIf="temps.errors.required">Temps is required</div>
             </div>
-        </div>
-        <div class="form-group">
-                <label class="titre-label" for="heure">Heure d'arrivée</label>
         </div>
         <div class="form-group">
             <button class="register-button">Register</button>
