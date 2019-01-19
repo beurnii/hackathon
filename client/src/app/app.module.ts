@@ -13,6 +13,7 @@ import { MenuUnComponent } from './menu-un/menu-un.component';
 import { MenuDeuxComponent } from './menu-deux/menu-deux.component';
 import { FormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
+import { ReservationParkingComponent } from './reservation-parking/reservation-parking.component';
 
 @NgModule({
     declarations: [
@@ -21,7 +22,8 @@ import { AgmCoreModule } from '@agm/core';
         SidenavMenuComponent,
         FooterComponent,
         MenuUnComponent,
-        MenuDeuxComponent
+        MenuDeuxComponent,
+        ReservationParkingComponent
     ],
     imports: [
         BrowserModule,
