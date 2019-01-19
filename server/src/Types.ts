@@ -1,3 +1,5 @@
 export default {
-    RoutesForm: Symbol('RoutesForm')
+    RoutesForm: Symbol('RoutesForm'),
+
+    RoutesParkingData: Symbol('RoutesParkingData')
 };

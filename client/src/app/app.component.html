@@ -2,7 +2,9 @@
     <mat-sidenav #sidenav mode='over' id='sidenav'>
         <app-sidenav-menu></app-sidenav-menu>
     </mat-sidenav>
-    
+
+    <app-data></app-data>
+
     <mat-sidenav-content>
         <app-top-menu [myCallback]='_sidenavCallbackFunction'></app-top-menu>
         <router-outlet></router-outlet>

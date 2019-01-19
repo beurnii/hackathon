@@ -13,6 +13,9 @@ import { MenuUnComponent } from './menu-un/menu-un.component';
 import { MenuDeuxComponent } from './menu-deux/menu-deux.component';
 import { FormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
+import { DataComponent } from './data/data.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DataService } from './data/data.service';
 
 @NgModule({
     declarations: [
@@ -21,7 +24,8 @@ import { AgmCoreModule } from '@agm/core';
         SidenavMenuComponent,
         FooterComponent,
         MenuUnComponent,
-        MenuDeuxComponent
+        MenuDeuxComponent,
+        DataComponent
     ],
     imports: [
         BrowserModule,
@@ -31,11 +35,12 @@ import { AgmCoreModule } from '@agm/core';
         MatButtonModule,
         AppRoutingModule,
         FormsModule,
+        HttpClientModule,
         AgmCoreModule.forRoot({
             apiKey: 'AIzaSyAUcuAVxaXeDLmc8qLm8uvpHhUW5Waw5zQ'
         })
     ],
-    providers: [],
+    providers: [DataService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
