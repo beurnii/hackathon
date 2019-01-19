@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-reservation-parking',
-  templateUrl: './reservation-parking.component.html',
-  styleUrls: ['./reservation-parking.component.scss']
+    selector: 'app-reservation-parking',
+    templateUrl: './reservation-parking.component.html',
+    styleUrls: ['./reservation-parking.component.scss']
 })
 export class ReservationParkingComponent implements OnInit {
 
-  constructor() { }
+    public constructor() { }
 
-  ngOnInit() {
-  }
+    public ngOnInit(): void { }
 
 }
