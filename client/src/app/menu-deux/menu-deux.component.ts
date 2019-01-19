@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuDeuxComponent implements OnInit {
 
-  constructor() { }
+    public title: string = 'TEST';
+    public lat: number = 45.50884;
+    public lng: number = -73.58781;
 
-  ngOnInit() {
-  }
+    public constructor() { }
+
+    public ngOnInit(): void {}
 
 }
