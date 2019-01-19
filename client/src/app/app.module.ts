@@ -32,7 +32,7 @@ import { AgmCoreModule } from '@agm/core';
         AppRoutingModule,
         FormsModule,
         AgmCoreModule.forRoot({
-            apiKey: 'AIzaSyAUcuAVxaXeDLmc8qLm8uvpHhUW5Waw5zQ'
+            apiKey: 'AIzaSyA7JRDXYs52tiEAC3fyJ3qdYnnXZtD1MsM'
         })
     ],
     providers: [],
