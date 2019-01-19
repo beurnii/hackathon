@@ -12,8 +12,8 @@ export class LandingPageComponent implements OnInit  {
     protected data: Array<any>;
 
     public title: string = 'TITRE';
-    public lat: number = 45.50884;
-    public lng: number = -73.58781;
+    public lat: number;
+    public lng: number;
 
     public async ngOnInit(): Promise<void> {
         this.data = await this.dataService.getParkingData();
@@ -21,10 +21,19 @@ export class LandingPageComponent implements OnInit  {
 
     public constructor(private router: Router,
                        private dataService: DataService) {
-
+        this.getLocation();
     }
 
     public navigate(uri: string): void {
         this.router.navigateByUrl(uri);
+    }
+
+    private getLocation(): void {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition((pos) => {
+                this.lat = pos.coords.latitude;
+                this.lng = pos.coords.longitude;
+            });
+        }
     }
 }
