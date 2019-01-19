@@ -1,0 +1,53 @@
+@import './../variables.scss';
+
+
+
+#form-container {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+
+    form {
+        display: inline-block;
+        width: 85%;
+        margin: 0 auto;
+
+        .form-group {
+            display: block;
+
+            .titre-label {
+                display: block;
+                margin-top: 15px;
+                font-family: Calibri, sans-serif;
+                font-size: 16px;
+                font-weight: bold;
+                text-align: left;
+            }
+            
+            .form-control {
+                display: block;
+                width: 250px;
+                margin-top: 5px;
+                border-width: 1px;
+                border-radius: $border-radius-form;
+                border-color: rgba(128, 128, 128, 0.5);
+
+                font-size: 16px;
+            }
+            
+            .is-invalid {
+                border-width: 1px;
+                border-color: red;
+                border-radius: $border-radius-form;
+                left: 0px;
+            }
+            
+            .register-button {
+                display: block;
+                margin-top: 25px;
+            }
+        }
+        
+
+    }
+}

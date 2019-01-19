@@ -2,16 +2,26 @@
     reservation-parking works!
 </p>
 
-<form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-    <div class="form-group">
-        <label for="firstName">Frist Name</label>
-        <input type="text" class="form-control" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel"
-            [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" required />
-        <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
-            <div *ngIf="firstName.errors.required">First Name is required</div>
+<div id="form-container">
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+        <div class="form-group">
+            <label class="titre-label" for="firstName">Frist Name</label>
+            <input type="text" class="form-control" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel"
+                [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" required />
+            <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+                <div *ngIf="firstName.errors.required">First Name is required</div>
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <button class="btn btn-primary">Register</button>
-    </div>
-</form>
+        <div class="form-group">
+            <label class="titre-label" for="secondField">Second Field</label>
+            <input type="text" class="form-control" name="secondField" [(ngModel)]="model.secondField" #secondField="ngModel"
+                [ngClass]="{ 'is-invalid': f.submitted && secondField.invalid }" required />
+            <div *ngIf="f.submitted && secondField.invalid" class="invalid-feedback">
+                <div *ngIf="secondField.errors.required">Second Field is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="register-button">Register</button>
+        </div>
+    </form>
+</div>
