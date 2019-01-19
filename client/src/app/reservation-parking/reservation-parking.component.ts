@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+interface Reservation {
+    firstName: string;
+    lastName: string;
+    time: number;
+}
 
 @Component({
     selector: 'app-reservation-parking',
@@ -6,10 +12,19 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./reservation-parking.component.scss']
 })
 export class ReservationParkingComponent implements OnInit {
-    // tslint:disable-next-line:no-any
-    public model: any = {};
+    @Input()
+    private numeroStationnement: string;
 
-    public constructor() { }
+    // tslint:disable-next-line:no-any
+    private model: Reservation;
+
+    public constructor() {
+        this.model = {
+            firstName: null,
+            lastName: null,
+            time: undefined
+        };
+    }
 
     public ngOnInit(): void { }
 
