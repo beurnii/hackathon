@@ -10,6 +10,7 @@ import {DataService} from './data.service';
 export class LandingPageComponent implements OnInit  {
     protected data: Array<any>;
 
+    public title: string = 'TITRE';
     public lat: number = 45.50884;
     public lng: number = -73.58781;
 

@@ -1,40 +1,46 @@
 @import './../variables.scss';
 
-#map-container {
-    height: 60%;
+#landing-page-container {
+    height: calc(100% - #{$top-menu-height});
     width: 100%;
-    text-align: center;
-    margin: 0;
-    padding: 0;
+    overflow: scroll;
 
-    agm-map {
-        height: 100%;
-        width: 75vw;
-        margin: 0 auto;
-        display: inline-block;
+    #map-container {
+        height: 60%;
+        width: 100%;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+
+        agm-map {
+            height: 100%;
+            width: 75vw;
+            margin: 0 auto;
+            display: inline-block;
+        }
     }
-}
 
-.maindiv {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-}
+    .maindiv {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+    }
 
-mat-card {
-    background-color: $color-main;
-    color: #b3cde0;
-}
+    mat-card {
+        background-color: $color-main;
+        color: #b3cde0;
+    }
 
-.leftContainer{
-    margin-top:15%;
-    max-width: 50%;
-    border-radius:5px;
-}
+    .leftContainer{
+        margin-top:15%;
+        max-width: 50%;
+        border-radius:5px;
+    }
 
-.rightContainer{
-    margin-top:15%;
-    max-width: 50%;
-    border-radius:5px;
+    .rightContainer{
+        margin-top:15%;
+        max-width: 50%;
+        border-radius:5px;
+    }
 }
