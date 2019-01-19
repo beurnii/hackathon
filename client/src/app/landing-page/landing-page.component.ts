@@ -10,13 +10,18 @@ import {DataService} from './data.service';
 export class LandingPageComponent implements OnInit  {
     // tslint:disable-next-line:no-any
     protected data: Array<any>;
+    public positions: Map<number, number>;
 
     public title: string = 'TITRE';
     public lat: number;
     public lng: number;
 
     public async ngOnInit(): Promise<void> {
+        this.positions = new Map<number, number>();
         this.data = await this.dataService.getParkingData();
+        this.data.forEach((d) => {
+            this.positions.set(d.nPositionCentreLongitude as number, d.nPositionCentreLatitude as number);
+        });
     }
 
     public constructor(private router: Router,

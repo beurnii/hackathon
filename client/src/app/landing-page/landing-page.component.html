@@ -3,7 +3,7 @@
 
     <div id="map-container">
         <agm-map [zoom]="15" [latitude]="lat" [longitude]="lng">
-            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+            <agm-marker *ngFor="let pos of positions | keyvalue"[latitude]="pos.value" [longitude]="pos.key"></agm-marker>
         </agm-map>
     </div>
 
