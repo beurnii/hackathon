@@ -1,0 +1,29 @@
+@import './../variables.scss';
+
+.maindiv {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+mat-card {
+    background-color: $color-main;
+    color: #b3cde0;
+}
+
+.leftContainer{
+    margin-top:15%;
+    max-width: 50%;
+    border-radius:5px;
+}
+
+.rightContainer{
+    margin-top:15%;
+    max-width: 50%;
+    border-radius:5px;
+}
+
+agm-map {
+    height: 75%;
+}
