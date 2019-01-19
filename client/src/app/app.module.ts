@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './landing-page/data.service';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { ReservationParkingComponent } from './reservation-parking/reservation-parking.component';
+import { AmazingTimePickerModule } from 'amazing-time-picker';
 
 @NgModule({
     declarations: [
@@ -34,7 +35,8 @@ import { ReservationParkingComponent } from './reservation-parking/reservation-p
         HttpClientModule,
         AgmCoreModule.forRoot({
             apiKey: 'AIzaSyA7JRDXYs52tiEAC3fyJ3qdYnnXZtD1MsM'
-        })
+        }),
+        AmazingTimePickerModule
     ],
     providers: [DataService],
     bootstrap: [AppComponent]
