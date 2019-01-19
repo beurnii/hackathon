@@ -11,6 +11,8 @@ import { FooterComponent } from './common/footer/footer.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { MenuUnComponent } from './menu-un/menu-un.component';
 import { MenuDeuxComponent } from './menu-deux/menu-deux.component';
+import { FormsModule } from '@angular/forms';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
     declarations: [
@@ -28,7 +30,11 @@ import { MenuDeuxComponent } from './menu-deux/menu-deux.component';
         MatIconModule,
         MatSidenavModule,
         MatButtonModule,
-        AppRoutingModule
+        AppRoutingModule,
+        FormsModule,
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyA7JRDXYs52tiEAC3fyJ3qdYnnXZtD1MsM'
+        })
     ],
     providers: [],
     bootstrap: [AppComponent]
