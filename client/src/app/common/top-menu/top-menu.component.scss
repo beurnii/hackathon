@@ -5,7 +5,9 @@
     padding-left: 30px;
     padding-right: 30px;
     background-color: $color-main;
-    
+    justify-content: center;
+    font-family: 'Marker Felt', fantasy;
+
     .mat-icon {
         @include material-icons();
         height: $top-menu-height;
@@ -14,11 +16,23 @@
         line-height: $top-menu-height;  // Must be placed after the include orelse it gets overwrited.
         cursor: pointer;                // Must be placed after the include orelse it gets overwrited.
         text-align: center;
-        color: $black;
+        color: #b3cde0;
+        float: right;
 
         &:hover {
             color: $white;
         }
     }
+}
 
+.top-menu #toolbar .title {
+    color: #b3cde0;
+    line-height: $top-menu-height;
+}
+
+.top-menu #toolbar .title-tweak {
+    color: #FFFFFF;
+    cursor: pointer;
+    padding-left: 5px;
+    padding-right: 5px;
 }
