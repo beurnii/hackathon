@@ -1,7 +1,7 @@
 import { Mongoose } from 'mongoose';
 import { injectable } from 'inversify';
 
-const DB_URL: string = 'mongodb://admin:admin123@ds143039.mlab.com:43039/angular-node';
+const DB_URL: string = 'mongodb://hackatown:poly1234@ds161074.mlab.com:61074/hackatown2019';
 
 @injectable()
 export class MongoDB {
