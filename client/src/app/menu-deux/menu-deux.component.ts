@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class MenuDeuxComponent implements OnInit {
 
     public title: string = 'TEST';
-    public lat: number = 51.678418;
-    public lng: number = 7.809007;
+    public lat: number = 45.50884;
+    public lng: number = -73.58781;
 
     public constructor() { }
 
