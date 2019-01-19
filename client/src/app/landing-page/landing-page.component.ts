@@ -10,6 +10,7 @@ import {DataService} from './data.service';
 export class LandingPageComponent implements OnInit  {
     // tslint:disable-next-line:no-any
     protected data: Array<any>;
+    protected test: any;
 
     public title: string = 'TITRE';
     public lat: number = 45.50884;
@@ -17,6 +18,7 @@ export class LandingPageComponent implements OnInit  {
 
     public async ngOnInit(): Promise<void> {
         this.data = await this.dataService.getParkingData();
+        this.test = this.data[0];
     }
 
     public constructor(private router: Router,
