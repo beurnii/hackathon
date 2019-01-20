@@ -7,7 +7,7 @@ import { SocketServerService } from '../socket-io.service';
 import { Document } from 'mongoose';
 
 const OK_STATUS: number = 200;
-const TIMER_DELAY: number = 6000;
+const TIMER_DELAY: number = 60000;
 
 @injectable()
 export class RoutesParkingData extends WebService {
