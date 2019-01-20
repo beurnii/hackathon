@@ -19,14 +19,15 @@ export class LandingPageComponent implements OnInit  {
     public lng: number;
 
     public async ngOnInit(): Promise<void> {
+        this.socket.socket.on('reservation', (id: string) => {
+            console.log(id);
         });
-        this.socket.socket.on('allo', (data: any) => {
-            console.log(data.allo);
     }
 
     public constructor(private router: Router,
                        private dataService: DataService,
                        private socket: SocketClientService) {
+        this.reservation = new Map<number, number>();
         this.getLocation();
     }
 
@@ -35,7 +36,6 @@ export class LandingPageComponent implements OnInit  {
     }
 
     public async checkMarkersInBounds(bounds: any): Promise<void> {
-
 
         this.positions = new Map<number, number>();
         if (this.data === undefined) {

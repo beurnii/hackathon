@@ -1,7 +1,9 @@
-import { injectable } from 'inversify';
+import { injectable, inject } from 'inversify';
 import { WebService } from '../WebService';
 import { Router, Request, Response } from 'express';
-import {MongoDB} from "../BD/MongoDB";
+import {MongoDB} from '../BD/MongoDB';
+import Types from '../Types';
+import { SocketServerService } from '../socket-io.service';
 // tslint:disable-next-line:no-any
 
 @injectable()
@@ -9,7 +11,8 @@ export class RoutesParkingData extends WebService {
 
     public readonly mainRoute: string;
 
-    public constructor(private mongoDB: MongoDB = new MongoDB()) {
+    public constructor(private mongoDB: MongoDB = new MongoDB(),
+                       @inject(Types.SocketServerService) private socket: SocketServerService) {
         super();
         this.mainRoute = '';
     }
@@ -48,6 +51,7 @@ export class RoutesParkingData extends WebService {
         router.post('/reservation/:id', (req: Request, res: Response) => {
             // tslint:disable-next-line:no-console
             console.log("Requete de reservation recu avec l'ID " + req.params.id);
+            this.socket.sendReservation(req.params.id);
         });
 
         return router;

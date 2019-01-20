@@ -13,9 +13,10 @@ export class SocketServerService {
 
     public init(server: http.Server): void {
         this.io = socket(server);
-        this.io.on('connection', () => {
-          console.log("connected");
-          this.io.emit('allo', { allo: 'allo'});
-        });
+    }
+
+    public sendReservation(id: string): void {
+      console.log("socket server");
+      this.io.emit('reservation', id);
     }
 }
