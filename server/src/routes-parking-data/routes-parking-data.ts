@@ -41,7 +41,7 @@ export class RoutesParkingData extends WebService {
             });
         });
 
-        router.post('/reservationAuto/:id/', (req, res) => {
+        router.post('/reservationAuto/:id/', (req: Request, res: Response) => {
             this.mongoDB.model.findOneAndUpdate({ sNoPlace: req.params.id }, { $set: { Occupation: 1 } })
                 .then((parkingSpot: Document) => {
                     this.socket.reservation(req.params.id);
@@ -49,7 +49,7 @@ export class RoutesParkingData extends WebService {
                 });
         });
 
-        router.post('/liberationAuto/:id/', (req, res) => {
+        router.post('/liberationAuto/:id/', (req: Request, res: Response) => {
             this.mongoDB.model.findOneAndUpdate({ sNoPlace: req.params.id }, { $set: { Occupation: 0 } })
                 .then((parkingSpot: Document) => {
                     this.socket.reservationOver(parkingSpot);
