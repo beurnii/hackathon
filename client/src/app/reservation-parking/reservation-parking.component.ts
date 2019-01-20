@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { WebRequestService } from '../web-request.service';
 import { SocketClientService } from '../socket.io-client/socket.io-client.service';
 
@@ -14,21 +14,18 @@ export interface Reservation {
     templateUrl: './reservation-parking.component.html',
     styleUrls: ['./reservation-parking.component.scss'],
 })
-export class ReservationParkingComponent implements OnChanges {
+export class ReservationParkingComponent {
     @Input()
     public parkingID: string;
+    
     // tslint:disable-next-line:no-any
     public model: Reservation;
     public errorNoParkingID: boolean;
 
-<<<<<<< HEAD
-    public constructor(private _webRequest: WebRequestService) {
-        this.parkingID = undefined;
-        this.errorNoParkingID = true;
-=======
     public constructor(private _webRequest: WebRequestService,
                        private socket: SocketClientService) {
->>>>>>> 418349a728eb1efa03e585a2c5ef68a101156c85
+        this.parkingID = undefined;
+        this.errorNoParkingID = true;
         this.model = {
             parkingID: null,
             firstName: null,
@@ -39,15 +36,11 @@ export class ReservationParkingComponent implements OnChanges {
 
     public onSubmit(): void {
         this.model.parkingID = this.parkingID;
-<<<<<<< HEAD
         // tslint:disable-next-line:no-console
         if (this.parkingID) {
+            this.socket.socket.emit('reservation', this.parkingID);
             this._webRequest.makeReservation(this.model);
             alert('Reservation successful!');
         }
-=======
-        this.socket.socket.emit('reservation', this.parkingID);
-        this._webRequest.makeReservation(this.model);
->>>>>>> 418349a728eb1efa03e585a2c5ef68a101156c85
     }
 }
