@@ -109,4 +109,15 @@ export class LandingPageComponent implements OnInit {
             this.hourglass = false;
         }, 500);
     }
+
+    public onMouseOver(infoWindow: any, gm: any): void {
+
+        if (gm.lastOpen != null) {
+            gm.lastOpen.close();
+        }
+
+        gm.lastOpen = infoWindow;
+
+        infoWindow.open();
+    }
 }
