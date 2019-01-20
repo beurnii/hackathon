@@ -17,14 +17,14 @@ html {
 
     .pulsate {
         -webkit-animation: pulsate 3s ease-out;
-        -webkit-animation-iteration-count: infinite; 
+        -webkit-animation-iteration-count: infinite;
         opacity: 0.5;
     }
     @-webkit-keyframes pulsate {
         0% { 
             opacity: 0.75;
         }
-        50% { 
+        50% {
             opacity: 1.0;
         }
         100% { 
@@ -100,4 +100,9 @@ html {
         max-width: 50%;
         border-radius:5px;
     }
+}
+
+.errorMessage {
+    color:red;
+    text-align: center;
 }

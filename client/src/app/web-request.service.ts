@@ -12,7 +12,7 @@ export class WebRequestService {
     public constructor(private _http: HttpClient) { }
 
     public makeReservation(reservation: Reservation): void {
-        const url: string = BASE_URL + 'reservation/' + reservation.parkingID;
+        const url: string = BASE_URL + 'reservation/' + reservation.parkingID + '/' + reservation.time;
         this._http.post(url, reservation).toPromise();
     }
 }

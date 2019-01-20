@@ -28,6 +28,7 @@
     "@angular/router": "^6.0.6",
     "@google/markerclusterer": "^1.0.3",
     "@types/jquery": "^3.3.29",
+    "@types/socket.io-client": "^1.4.32",
     "amazing-time-picker-angular6": "^1.5.5",
     "codecov.io": "^0.1.6",
     "core-js": "^2.4.1",
@@ -39,6 +40,7 @@
     "jshint": "^2.9.5",
     "rxjs": "^6.2.1",
     "rxjs-compat": "^6.0.0-rc.0",
+    "socket.io-client": "^2.2.0",
     "tslint-microsoft-contrib": "^6.0.0",
     "zone.js": "^0.8.19"
   },
