@@ -13,7 +13,7 @@ export interface Reservation {
     templateUrl: './reservation-parking.component.html',
     styleUrls: ['./reservation-parking.component.scss'],
 })
-export class ReservationParkingComponent implements OnInit {
+export class ReservationParkingComponent {
     @Input()
     public parkingID: string;
 
