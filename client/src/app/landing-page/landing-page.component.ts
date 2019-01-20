@@ -1,19 +1,18 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {DataService} from './data.service';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { DataService } from './data.service';
 
 @Component({
     selector: 'app-landing-page',
     templateUrl: './landing-page.component.html',
     styleUrls: ['./landing-page.component.scss'],
 })
-export class LandingPageComponent implements OnInit  {
+export class LandingPageComponent implements OnInit {
     // tslint:disable-next-line:no-any
     protected data: Array<any>;
     public positions: Map<number, number>;
     public reservation: Map<number, number>;
 
-    public title: string = 'TITRE';
     public lat: number;
     public lng: number;
 
@@ -22,8 +21,9 @@ export class LandingPageComponent implements OnInit  {
     public async ngOnInit(): Promise<void> {
     }
 
-    public constructor(private router: Router,
-                       private dataService: DataService) {
+    public constructor(
+        private router: Router,
+        private dataService: DataService) {
         this.reservation = new Map<number, number>();
         this.getLocation();
         this.noUniqueParking = null;
@@ -45,7 +45,7 @@ export class LandingPageComponent implements OnInit  {
         window.clearTimeout(timeout);
         timeout = window.setTimeout(() => {
             this.data.forEach((d) => {
-                const pos = {lat: parseFloat(d.nPositionCentreLatitude), lng: parseFloat(d.nPositionCentreLongitude)};
+                const pos = { lat: parseFloat(d.nPositionCentreLatitude), lng: parseFloat(d.nPositionCentreLongitude) };
                 if (bounds.contains(pos) && !this.positions.has(d.nPositionCentreLongitude) && d.Occupation != 1) {
                     this.positions.set(d.nPositionCentreLongitude as number, d.nPositionCentreLatitude as number);
                 }
@@ -64,7 +64,7 @@ export class LandingPageComponent implements OnInit  {
 
                 document.querySelector('#reservation-container').scrollIntoView({
                     behavior: 'smooth'
-                  });
+                });
             }
         });
     }
