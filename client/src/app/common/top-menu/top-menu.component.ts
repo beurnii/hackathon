@@ -17,7 +17,7 @@ export class TopMenuComponent {
         .catch(() => ErrorHandler);
     }
 
-    protected onHeaderClick(): void {
+    public onHeaderClick(): void {
         this.router.navigateByUrl('')
         .catch(() => ErrorHandler);
     }
