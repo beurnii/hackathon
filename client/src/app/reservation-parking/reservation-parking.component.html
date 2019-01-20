@@ -1,7 +1,7 @@
 <div id="form-container">
     <h1 class="title">Reserve your spot!</h1>
     <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-        <div class="form-group">
+        <div id="question" class="form-group">
             <label class="titre-label" for="firstName">First Name</label>
             <input type="text" class="form-control" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel"
                 [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" required />
@@ -9,7 +9,7 @@
                 <div *ngIf="firstName.errors.required">First Name is required</div>
             </div>
         </div>
-        <div class="form-group">
+        <div id="question" class="form-group">
             <label class="titre-label" for="lastName">Last Name</label>
             <input type="text" class="form-control" name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel"
                 [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }" required />
@@ -17,7 +17,7 @@
                 <div *ngIf="lastName.errors.required">Last Name is required</div>
             </div>
         </div>
-        <div class="form-group">
+        <div id="question" class="form-group">
             <label class="titre-label" for="time">Time (minutes)</label>
             <select name="time" class="form-control" [(ngModel)]="model.time" #time="ngModel"
                 [ngClass]="{ 'is-invalid': f.submitted && time.invalid }" required>
