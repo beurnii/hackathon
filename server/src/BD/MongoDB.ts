@@ -30,7 +30,7 @@ export class MongoDB {
 
     private async connectToBD(): Promise<void> {
         await this._mongoose.connect(DB_URL, { useNewUrlParser: true }).catch(() => {
-            console.log("Error while connecting to the BD.");
+            console.log('Error while connecting to the BD.');
         });
     }
 

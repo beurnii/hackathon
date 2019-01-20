@@ -1,7 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {DataService} from './data.service';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { DataService } from './data.service';
 import { SocketClientService } from '../socket.io-client/socket.io-client.service';
+
+const DELAI_TIMER: number = 500;
 
 @Component({
     selector: 'app-landing-page',
@@ -26,9 +28,9 @@ export class LandingPageComponent implements OnInit {
         this.setSocketOnEvents();
     }
 
-    public constructor(private router: Router,
-                       private dataService: DataService,
-                       private socket: SocketClientService) {
+    public constructor( private router: Router,
+                        private dataService: DataService,
+                        private socket: SocketClientService) {
         this.hourglass = true;
         this.positionReservation = new Map<string, Array<number>>();
         this.reservationErrorMessage = '';
@@ -107,6 +109,6 @@ export class LandingPageComponent implements OnInit {
 
         setTimeout(() => {
             this.hourglass = false;
-        }, 500);
+        },         DELAI_TIMER);
     }
 }
