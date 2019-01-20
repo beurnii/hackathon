@@ -9,11 +9,16 @@ html {
     width: 100%;
     overflow: scroll;
 
+    .title {
+        text-align: center;
+        margin-top: 5%;
+    }
+
     #map-container {
         height: 60%;
         width: 100%;
         text-align: center;
-        margin: 0;
+        margin-top: 5%;
         padding: 0;
 
         agm-map {

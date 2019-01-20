@@ -1,12 +1,11 @@
 <div id="landing-page-container">
-
+    <div><h1 class="title">Quick, choose your parking!</h1></div>
     <div id="map-container">
         <agm-map [zoom]="15" [latitude]="lat" [longitude]="lng" (boundsChange)="checkMarkersInBounds($event)">
             <agm-marker *ngFor="let pos of positions | keyvalue" (markerClick)="onMarkerClick(pos.value, pos.key)" 
-            [latitude]="pos.value" [longitude]="pos.key" [iconUrl]="reservation.has(pos.value) ? 'http://maps.google.com/mapfiles/ms/icons/green-dot.png' : 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'"></agm-marker>
+            [latitude]="pos.value" [longitude]="pos.key" [iconUrl]="reservation.has(pos.value) ? 'https://storage.googleapis.com/support-kms-prod/SNP_2752129_en_v0' : 'https://storage.googleapis.com/support-kms-prod/SNP_2752125_en_v0'"></agm-marker>
         </agm-map>
     </div>
 
-    <h1>Réservation</h1>
     <app-reservation-parking id="reservation-container" [parkingID]="'1234abcde'"></app-reservation-parking>
 </div>
