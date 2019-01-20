@@ -39,10 +39,14 @@ export class LandingPageComponent {
                 const arrayPosition: Array<number> = [lat, lng];
                 this.positionReservation.set(this.noUniqueParking, arrayPosition);
 
-                document.querySelector('#reservation-container').scrollIntoView({
-                    behavior: 'smooth'
-                });
+                this.scrollToForm();
             }
+        });
+    }
+
+    private scrollToForm(): void {
+        document.querySelector('#reservation-container').scrollIntoView({
+            behavior: 'smooth'
         });
     }
 
