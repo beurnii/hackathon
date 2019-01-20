@@ -37,7 +37,6 @@ export class LandingPageComponent implements OnInit  {
         if (this.data === undefined) {
             this.positions = new Map<number, number>();
             this.data = await this.dataService.getParkingData();
-            console.log('Done');
         }
         console.log(this.data[0]);
 
@@ -59,6 +58,10 @@ export class LandingPageComponent implements OnInit  {
             if ((lat === d.nPositionCentreLatitude) && (lng === d.nPositionCentreLongitude)) {
                 this.reservation.clear();
                 this.reservation.set(lat, lng);
+
+                document.querySelector('#reservation-container').scrollIntoView({
+                    behavior: 'smooth'
+                  });
             }
         });
     }
