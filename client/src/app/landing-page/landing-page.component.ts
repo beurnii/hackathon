@@ -34,8 +34,6 @@ export class LandingPageComponent implements OnInit  {
     }
 
     public async checkMarkersInBounds(bounds: any): Promise<void> {
-
-
         this.positions = new Map<number, number>();
         if (this.data === undefined) {
             this.positions = new Map<number, number>();
