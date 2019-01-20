@@ -77,28 +77,15 @@ html {
         }
     }
 
-    .maindiv {
-        display: flex;
-        justify-content: center;
-        text-align: center;
-        align-items: center;
-    }
+    #pub-container {
+        margin-left: 30%;
+        height: 50%;
+        width: 40%;
 
-    mat-card {
-        background-color: $color-main;
-        color: #b3cde0;
-    }
-
-    .leftContainer{
-        margin-top:15%;
-        max-width: 50%;
-        border-radius:5px;
-    }
-
-    .rightContainer{
-        margin-top:15%;
-        max-width: 50%;
-        border-radius:5px;
+        #pub-img {
+            height: 100%;
+            width: 100%;
+        }
     }
 }
 
