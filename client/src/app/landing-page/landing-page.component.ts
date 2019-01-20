@@ -31,12 +31,16 @@ export class LandingPageComponent implements OnInit  {
     }
 
     public async checkMarkersInBounds(bounds: any): Promise<void> {
+
+
         this.positions = new Map<number, number>();
         if (this.data === undefined) {
             this.positions = new Map<number, number>();
             this.data = await this.dataService.getParkingData();
             console.log('Done');
         }
+        console.log(this.data[0]);
+
         let timeout: number;
         window.clearTimeout(timeout);
         timeout = window.setTimeout(() => {
@@ -46,6 +50,7 @@ export class LandingPageComponent implements OnInit  {
                     this.positions.set(d.nPositionCentreLongitude as number, d.nPositionCentreLatitude as number);
                 }
             });
+            console.log(this.positions.size);
         }, 500);
     }
 
