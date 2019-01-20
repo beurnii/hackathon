@@ -8,15 +8,18 @@ import { SocketClientService } from '../socket.io-client/socket.io-client.servic
     templateUrl: './landing-page.component.html',
     styleUrls: ['./landing-page.component.scss'],
 })
-export class LandingPageComponent implements OnInit  {
+export class LandingPageComponent implements OnInit {
     // tslint:disable-next-line:no-any
     protected data: Array<any>;
     public positions: Map<number, number>;
     public reservation: Map<number, number>;
 
-    public title: string = 'TITRE';
     public lat: number;
     public lng: number;
+
+    private bounds: any;
+
+    public noUniqueParking: string;
 
     public async ngOnInit(): Promise<void> {
         this.socket.socket.on('reservation', (id: string) => {
@@ -29,13 +32,13 @@ export class LandingPageComponent implements OnInit  {
                        private socket: SocketClientService) {
         this.reservation = new Map<number, number>();
         this.getLocation();
+        this.noUniqueParking = null;
     }
 
     public navigate(uri: string): void {
         this.router.navigateByUrl(uri);
     }
 
-    public async checkMarkersInBounds(bounds: any): Promise<void> {
 
         this.positions = new Map<number, number>();
         if (this.data === undefined) {
@@ -60,12 +63,14 @@ export class LandingPageComponent implements OnInit  {
     public onMarkerClick(lat: number, lng: number): void {
         this.data.forEach((d) => {
             if ((lat === d.nPositionCentreLatitude) && (lng === d.nPositionCentreLongitude)) {
+                this.noUniqueParking = d.sNoPlace;
+                console.log(this.noUniqueParking);
                 this.reservation.clear();
                 this.reservation.set(lat, lng);
 
                 document.querySelector('#reservation-container').scrollIntoView({
                     behavior: 'smooth'
-                  });
+                });
             }
         });
     }
@@ -79,4 +84,25 @@ export class LandingPageComponent implements OnInit  {
         }
     }
 
+
+    public boundsChange(bounds: any){
+        this.bounds = bounds;
+    }
+
+    public async idle() {
+        this.positions = new Map<number, number>();
+
+        if (this.data === undefined) {
+            this.data = await this.dataService.getParkingData();
+        }
+        this.data.forEach((d) => {
+            const pos = {
+                lat: parseFloat(d.nPositionCentreLatitude),
+                lng: parseFloat(d.nPositionCentreLongitude)
+            };
+            if (this.bounds.contains(pos) && !this.positions.has(d.nPositionCentreLongitude) && d.Occupation != 1) {
+                this.positions.set(d.nPositionCentreLongitude as number, d.nPositionCentreLatitude as number);
+            }
+        });
+    }
 }
