@@ -29,9 +29,11 @@ export class LandingPageComponent implements OnInit  {
     }
 
     public async checkMarkersInBounds(bounds: any): Promise<void> {
+        this.positions = new Map<number, number>();
         if (this.data === undefined) {
             this.positions = new Map<number, number>();
             this.data = await this.dataService.getParkingData();
+            console.log('Done');
         }
         let timeout: number;
         window.clearTimeout(timeout);

@@ -17,21 +17,11 @@ export class MongoDB {
         this._mongoose = new Mongoose();
         this._schema = new Schema({
           sNoPlace: String,
-          nLongitude: Number,
-          nLatitude: Number,
           nPositionCentreLongitude: Number,
           nPositionCentreLatitude: Number,
           Occupation: Number,
-          sStatut: Number,
-          sGenre: String,
-          sType: String,
-          sAutreTete: String,
           sNomRue: String,
-          nSupVelo: Number,
-          sTypeExploitation: String,
-          nTarifHoraire: Number,
-          sLocalisation: String,
-          nTarifMax: String
+          nSupVelo: Number
         });
 
         this._model = this._mongoose.model('parkingPlaces', this._schema);
