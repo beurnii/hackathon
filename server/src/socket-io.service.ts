@@ -13,10 +13,15 @@ export class SocketServerService {
 
     public init(server: http.Server): void {
         this.io = socket(server);
+
+        this.io.on('connection', (s: socket.Socket) => {
+            s.on('reservation', (id: string) => {
+                s.broadcast.emit('reservation', id);
+            });
+        });
     }
 
     public sendReservation(id: string): void {
-      console.log('ID: ', id);
       this.io.emit('reservation', id);
     }
 }

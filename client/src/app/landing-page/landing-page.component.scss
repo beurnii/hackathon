@@ -14,17 +14,17 @@ html {
         margin-top: 3%;
         color: #b3cde0;
         -webkit-animation: pulsate 3s ease-out;
-        -webkit-animation-iteration-count: infinite; 
+        -webkit-animation-iteration-count: infinite;
         opacity: 0.5;
     }
     @-webkit-keyframes pulsate {
-        0% { 
+        0% {
             opacity: 0.5;
         }
-        50% { 
+        50% {
             opacity: 1.0;
         }
-        100% { 
+        100% {
             opacity: 0.5;
         }
     }
@@ -67,4 +67,9 @@ html {
         max-width: 50%;
         border-radius:5px;
     }
+}
+
+.errorMessage {
+    color:red;
+    text-align: center;
 }

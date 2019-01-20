@@ -13,6 +13,7 @@ export class LandingPageComponent implements OnInit {
     protected data: Array<any>;
     public positions: Map<string, Array<number>>;
     public positionReservation: Map<string, Array<number>>;
+    public reservationErrorMessage: string;
 
     public lat: number;
     public lng: number;
@@ -21,7 +22,11 @@ export class LandingPageComponent implements OnInit {
 
     public async ngOnInit(): Promise<void> {
         this.socket.socket.on('reservation', (id: string) => {
-            console.log(id);
+            this.positions.delete(id);
+            if (this.positionReservation.has(id)) {
+                this.reservationErrorMessage = 'Sorry! This parking spot has been taken';
+                this.positionReservation.clear();
+            }
         });
     }
 
@@ -29,6 +34,7 @@ export class LandingPageComponent implements OnInit {
                        private dataService: DataService,
                        private socket: SocketClientService) {
         this.positionReservation = new Map<string, Array<number>>();
+        this.reservationErrorMessage = '';
         this.getLocation();
         this.noUniqueParking = null;
         this.loadingPlaces();
@@ -47,6 +53,7 @@ export class LandingPageComponent implements OnInit {
                 this.positionReservation.clear();
                 const arrayPosition: Array<number> = [lat, lng];
                 this.positionReservation.set(this.noUniqueParking, arrayPosition);
+                this.reservationErrorMessage = '';
 
                 document.querySelector('#reservation-container').scrollIntoView({
                     behavior: 'smooth'
