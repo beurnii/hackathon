@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from './data.service';
 
@@ -7,23 +7,18 @@ import { DataService } from './data.service';
     templateUrl: './landing-page.component.html',
     styleUrls: ['./landing-page.component.scss'],
 })
-export class LandingPageComponent implements OnInit {
+export class LandingPageComponent {
     // tslint:disable-next-line:no-any
     protected data: Array<any>;
     public positions: Map<string, Array<number>>;
     public positionReservation: Map<string, Array<number>>;
-
     public lat: number;
     public lng: number;
-
     public noUniqueParking: string;
 
-    public async ngOnInit(): Promise<void> {
-    }
-
     public constructor(
-        private router: Router,
-        private dataService: DataService) {
+        private _router: Router,
+        private _dataService: DataService) {
         this.positionReservation = new Map<string, Array<number>>();
         this.getLocation();
         this.noUniqueParking = null;
@@ -31,7 +26,7 @@ export class LandingPageComponent implements OnInit {
     }
 
     public navigate(uri: string): void {
-        this.router.navigateByUrl(uri);
+        this._router.navigateByUrl(uri);
     }
 
     public onMarkerClick(id: string, position: Array<number>): void {
@@ -64,7 +59,7 @@ export class LandingPageComponent implements OnInit {
         this.positions = new Map<string, Array<number>>();
 
         if (!this.data) {
-            this.data = await this.dataService.getParkingData();
+            this.data = await this._dataService.getParkingData();
         }
 
         this.data.forEach((d) => {
