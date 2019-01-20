@@ -44,6 +44,9 @@ export class LandingPageComponent implements OnInit {
         });
 
         this.socket.socket.on('reservationOver', (parkingSpot: any) => {
+            if (this.positionReservation.has(parkingSpot.sNoPlace)) {
+                this.positionReservation.clear();
+            }
             this.positions.set(parkingSpot.sNoPlace, [parkingSpot.nPositionCentreLatitude, parkingSpot.nPositionCentreLongitude]);
         });
     }
