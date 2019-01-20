@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './landing-page/data.service';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { ReservationParkingComponent } from './reservation-parking/reservation-parking.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 @NgModule({
     declarations: [
@@ -19,7 +20,8 @@ import { ReservationParkingComponent } from './reservation-parking/reservation-p
         TopMenuComponent,
         FooterComponent,
         LandingPageComponent,
-        ReservationParkingComponent
+        ReservationParkingComponent,
+        AboutUsComponent
     ],
     imports: [
         BrowserModule,

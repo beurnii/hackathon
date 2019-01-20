@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ErrorHandler } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-top-menu',
@@ -9,5 +10,15 @@ export class TopMenuComponent {
     @Input()
     public myCallback: Function;
 
-    public constructor() { }
+    public constructor(private router: Router) { }
+
+    protected onAboutUsClick(): void {
+        this.router.navigateByUrl('/about-us')
+        .catch(() => ErrorHandler);
+    }
+
+    protected onHeaderClick(): void {
+        this.router.navigateByUrl('')
+        .catch(() => ErrorHandler);
+    }
 }

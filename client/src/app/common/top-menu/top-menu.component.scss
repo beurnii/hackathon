@@ -7,12 +7,14 @@
     background-color: $color-main;
     justify-content: center;
     font-family: 'Marker Felt', fantasy;
+    align-items: center;
 }
 
 .top-menu #toolbar .title {
     color: #b3cde0;
     cursor: pointer;
     line-height: $top-menu-height;
+    align-items: center;
 }
 
 .top-menu #toolbar .title-tweak {
@@ -44,4 +46,14 @@ mat-card {
     margin-top:15%;
     max-width: 50%;
     border-radius:5px;
+}
+
+.homeHeader {
+    font-size:40px;
+}
+
+.aboutUs {
+    float:right;
+    font-style: italic;
+    &:hover{color:white;}
 }
