@@ -20,6 +20,7 @@ export class LandingPageComponent implements OnInit {
     public hourglass: Boolean;
 
     public noUniqueParking: string;
+    public parkingStreet: string;
 
     public async ngOnInit(): Promise<void> {
         this.setSocketOnEvents();
@@ -33,6 +34,7 @@ export class LandingPageComponent implements OnInit {
         this.reservationErrorMessage = '';
         this.getLocation();
         this.noUniqueParking = null;
+        this.parkingStreet = null;
         this.loadingPlaces();
     }
 
@@ -72,6 +74,7 @@ export class LandingPageComponent implements OnInit {
             const lng: number = position[1];
             if (id === d.sNoPlace) {
                 this.noUniqueParking = d.sNoPlace;
+                this.parkingStreet = d.sNomRue;
                 this.positionReservation.clear();
                 const arrayPosition: Array<number> = [lat, lng];
                 this.positionReservation.set(this.noUniqueParking, arrayPosition);
