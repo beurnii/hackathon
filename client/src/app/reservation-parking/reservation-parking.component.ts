@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { WebRequestService } from '../web-request.service';
 import { SocketClientService } from '../socket.io-client/socket.io-client.service';
+import { NgForm } from '@angular/forms';
 
 export interface Reservation {
     parkingID: string;
@@ -17,12 +18,10 @@ export interface Reservation {
 export class ReservationParkingComponent {
     @Input()
     public parkingID: string;
-
     // tslint:disable-next-line:no-input-rename
     @Input('parkingStreet')
     public parkingStreet: string;
 
-    // tslint:disable-next-line:no-any
     public model: Reservation;
     public errorNoParkingID: boolean;
 
@@ -39,13 +38,13 @@ export class ReservationParkingComponent {
         };
     }
 
-    public onSubmit(): void {
+    public onSubmit(f: NgForm): void {
         this.model.parkingID = this.parkingID;
-        // tslint:disable-next-line:no-console
         if (this.parkingID) {
             this.socket.socket.emit('reservation', this.parkingID);
             this._webRequest.makeReservation(this.model);
             alert('Reservation successful!');
+            f.reset();
         }
     }
 }

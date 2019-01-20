@@ -1,6 +1,6 @@
 <div id="form-container">
     <h1 class="title">Reserve your spot!</h1>
-    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit(f)" #f="ngForm" novalidate>
         <div class="form-group">
             <label class="titre-label">Parking identifier : {{ parkingID }}, {{ parkingStreet }}</label>
             <div *ngIf="!parkingID" class="invalid-field">
