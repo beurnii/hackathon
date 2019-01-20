@@ -10,23 +10,23 @@
         <div id="question" class="form-group">
             <label class="titre-label" for="firstName">First Name</label>
             <input type="text" class="form-control" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel"
-                [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" required />
-            <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback invalid-field">
+                [ngClass]="{ 'is-invalid': firstName.invalid }" required />
+            <div *ngIf="firstName.invalid" class="invalid-feedback invalid-field">
                 <div *ngIf="firstName.errors.required">First Name is required</div>
             </div>
         </div>
         <div id="question" class="form-group">
             <label class="titre-label" for="lastName">Last Name</label>
             <input type="text" class="form-control" name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel"
-                [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }" required />
-            <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback invalid-field">
+                [ngClass]="{ 'is-invalid':lastName.invalid }" required />
+            <div *ngIf="lastName.invalid" class="invalid-feedback invalid-field">
                 <div *ngIf="lastName.errors.required">Last Name is required</div>
             </div>
         </div>
         <div id="question" class="form-group">
             <label class="titre-label" for="time">Time (minutes)</label>
             <select name="time" class="form-control" [(ngModel)]="model.time" #time="ngModel"
-                [ngClass]="{ 'is-invalid': f.submitted && time.invalid }" required>
+                [ngClass]="{ 'is-invalid': time.invalid }" required>
                 <option value="15">15 minutes</option>
                 <option value="30">30 minutes</option>
                 <option value="45">45 minutes</option>
@@ -36,7 +36,7 @@
                 <option value="105">105 minutes</option>
                 <option value="120">120 minutes</option>
             </select>
-            <div *ngIf="f.submitted && time.invalid" class="invalid-feedback invalid-field">
+            <div *ngIf="time.invalid" class="invalid-feedback invalid-field">
                 <div *ngIf="time.errors.required">Time is required</div>
             </div>
         </div>

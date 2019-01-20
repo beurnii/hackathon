@@ -42,10 +42,10 @@ export class ReservationParkingComponent {
             this._webRequest.makeReservation(this.model);
             alert('Reservation successful!');
             this.model = {
-                parkingID: null,
-                firstName: null,
-                lastName: null,
-                time: undefined
+                parkingID: ' ',
+                firstName: ' ',
+                lastName: ' ',
+                time: 0
             };
         }
     }
