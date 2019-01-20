@@ -5,20 +5,22 @@ import { Reservation } from '../reservation-parking/reservation-parking.componen
 const BASE_URL: string = 'http://localhost:3000/';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class DataService {
 
-  public constructor(private http: HttpClient) {
-  }
+    public constructor(private http: HttpClient) {
+    }
 
-  public getParkingData(): Promise<Array<any>> {
-    return this.http.get<Array<any>>(BASE_URL + 'getParkingData').toPromise();
-  }
+    public getParkingData(): Promise<Array<any>> {
+        return this.http.get<Array<any>>(BASE_URL + 'getParkingData').toPromise();
+    }
 
-  public makeReservation(reservation: Reservation): void {
-    const url: string = BASE_URL + 'reservation/' + reservation.parkingID;
-    console.log(url);
-    this.http.post(url, reservation);
-}
+    public makeReservation(reservation: Reservation): void {
+        const url: string = BASE_URL + 'reservation/' + reservation.parkingID;
+        console.log(url);
+        this.http.post(url, reservation).subscribe(() => {
+            console.log('ça fonctionne chummmm');
+        });
+    }
 }

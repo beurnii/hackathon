@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { WebRequestService } from '../web-request.service';
 import { DataService } from '../landing-page/data.service';
 
 export interface Reservation {
@@ -34,8 +33,8 @@ export class ReservationParkingComponent implements OnInit {
         this.model.parkingID = this.parkingID;
     }
 
-    public async onSubmit(): Promise<void> {
+    public onSubmit(): void {
         console.log('SUCCESS!! :-)\n\n' + JSON.stringify(this.model));
-        await this._dataService.makeReservation(this.model);
+        this._dataService.makeReservation(this.model);
     }
 }
