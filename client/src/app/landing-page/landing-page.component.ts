@@ -10,8 +10,8 @@ import { DataService } from './data.service';
 export class LandingPageComponent implements OnInit {
     // tslint:disable-next-line:no-any
     protected data: Array<any>;
-    public positions: Map<number, number>;
-    public reservation: Map<number, number>;
+    public positions: Map<string, Array<number>>;
+    public positionReservation: Map<string, Array<number>>;
 
     public lat: number;
     public lng: number;
@@ -26,7 +26,7 @@ export class LandingPageComponent implements OnInit {
     public constructor(
         private router: Router,
         private dataService: DataService) {
-        this.reservation = new Map<number, number>();
+        this.positionReservation = new Map<string, Array<number>>();
         this.getLocation();
         this.noUniqueParking = null;
     }
@@ -35,15 +35,15 @@ export class LandingPageComponent implements OnInit {
         this.router.navigateByUrl(uri);
     }
 
-
-
-    public onMarkerClick(lat: number, lng: number): void {
+    public onMarkerClick(id: string, position: Array<number>): void {
         this.data.forEach((d) => {
-            if ((lat === d.nPositionCentreLatitude) && (lng === d.nPositionCentreLongitude)) {
+            const lat: number = position[0];
+            const lng: number = position[1];
+            if (id === d.sNoPlace) {
                 this.noUniqueParking = d.sNoPlace;
-                console.log(this.noUniqueParking);
-                this.reservation.clear();
-                this.reservation.set(lat, lng);
+                this.positionReservation.clear();
+                const arrayPosition: Array<number> = [lat, lng];
+                this.positionReservation.set(this.noUniqueParking, arrayPosition);
 
                 document.querySelector('#reservation-container').scrollIntoView({
                     behavior: 'smooth'
@@ -61,25 +61,29 @@ export class LandingPageComponent implements OnInit {
         }
     }
 
-
     public boundsChange(bounds: any){
         this.bounds = bounds;
     }
 
     public async idle() {
-        this.positions = new Map<number, number>();
+        this.positions = new Map<string, Array<number>>();
 
         if (this.data === undefined) {
             this.data = await this.dataService.getParkingData();
         }
+
         this.data.forEach((d) => {
+            const id: string = d.sNoPlace;
             const pos = {
                 lat: parseFloat(d.nPositionCentreLatitude),
                 lng: parseFloat(d.nPositionCentreLongitude)
             };
-            if (this.bounds.contains(pos) && !this.positions.has(d.nPositionCentreLongitude) && d.Occupation != 1) {
-                this.positions.set(d.nPositionCentreLongitude as number, d.nPositionCentreLatitude as number);
+            if (this.bounds.contains(pos) && !this.positions.has(id) && d.Occupation != 1) {
+                const arrayPosition: Array<number> = [d.nPositionCentreLatitude as number, d.nPositionCentreLongitude as number];
+                this.positions.set(d.sNoPlace, arrayPosition);
             }
         });
+
+        console.log(this.positions);
     }
 }
