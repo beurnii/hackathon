@@ -23,7 +23,7 @@ export class RoutesParkingData extends WebService {
         const router: Router = Router();
 
         router.get('/getParkingData', (req: Request, res: Response) => {
-            this.mongoDB.model.find({ Occupation: 0 }, (err: Error, data: Document) => {
+            this.mongoDB.model.find({Occupation: 0}, (err: Error, data: Document) => {
                 res.status(OK_STATUS).json(data);
             });
         });
@@ -41,11 +41,11 @@ export class RoutesParkingData extends WebService {
         });
 
         router.post('/reservationAuto/:id/', (req, res) => {
-           this.mongoDB.model.findOneAndUpdate({sNoPlace: req.params.id}, {$set: {Occupation: 1}})
-               .then((parkingSpot: Document) => {
-                   this.socket.reservation(req.params.id);
-                   res.status(OK_STATUS).json(parkingSpot);
-               });
+            this.mongoDB.model.findOneAndUpdate({sNoPlace: req.params.id}, {$set: {Occupation: 1}})
+                .then((parkingSpot: Document) => {
+                    this.socket.reservation(req.params.id);
+                    res.status(OK_STATUS).json(parkingSpot);
+                });
         });
 
         router.post('/liberationAuto/:id/', (req, res) => {
