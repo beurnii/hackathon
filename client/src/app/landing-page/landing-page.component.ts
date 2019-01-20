@@ -21,13 +21,7 @@ export class LandingPageComponent implements OnInit {
     public noUniqueParking: string;
 
     public async ngOnInit(): Promise<void> {
-        this.socket.socket.on('reservation', (id: string) => {
-            this.positions.delete(id);
-            if (this.positionReservation.has(id)) {
-                this.reservationErrorMessage = 'Sorry! This parking spot has been taken';
-                this.positionReservation.clear();
-            }
-        });
+        this.setSocketOnEvents();
     }
 
     public constructor(private router: Router,
@@ -38,6 +32,29 @@ export class LandingPageComponent implements OnInit {
         this.getLocation();
         this.noUniqueParking = null;
         this.loadingPlaces();
+    }
+
+    private setSocketOnEvents(): void {
+        this.socket.socket.on('reservation', (id: string) => {
+            this.positions.delete(id);
+            if (this.positionReservation.has(id)) {
+                this.reservationErrorMessage = 'Sorry! This parking spot has been taken';
+                this.positionReservation.clear();
+            }
+        });
+
+        this.socket.socket.on('reservationOver', (parkingSpot: any) => {
+            this.positions.set(parkingSpot.sNoPlace, [parkingSpot.nPositionCentreLatitude, parkingSpot.nPositionCentreLongitude]);
+        });
+    }
+
+    private getLocation(): void {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition((pos) => {
+                this.lat = pos.coords.latitude;
+                this.lng = pos.coords.longitude;
+            });
+        }
     }
 
     public navigate(uri: string): void {
@@ -60,15 +77,6 @@ export class LandingPageComponent implements OnInit {
                 });
             }
         });
-    }
-
-    private getLocation(): void {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition((pos) => {
-                this.lat = pos.coords.latitude;
-                this.lng = pos.coords.longitude;
-            });
-        }
     }
 
     public async loadingPlaces(): Promise<void> {

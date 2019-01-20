@@ -1,6 +1,7 @@
 import * as http from 'http';
 import * as socket from 'socket.io';
 import { injectable } from 'inversify';
+import { Document } from 'mongoose';
 
 @injectable()
 export class SocketServerService {
@@ -21,7 +22,7 @@ export class SocketServerService {
         });
     }
 
-    public sendReservation(id: string): void {
-      this.io.emit('reservation', id);
+    public reservationOver(parkingSpot: Document): void {
+      this.io.emit('reservationOver', parkingSpot);
     }
 }
