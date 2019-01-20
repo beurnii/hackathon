@@ -17,7 +17,7 @@ export interface Reservation {
 export class ReservationParkingComponent {
     @Input()
     public parkingID: string;
-    
+
     // tslint:disable-next-line:no-any
     public model: Reservation;
     public errorNoParkingID: boolean;
@@ -41,6 +41,12 @@ export class ReservationParkingComponent {
             this.socket.socket.emit('reservation', this.parkingID);
             this._webRequest.makeReservation(this.model);
             alert('Reservation successful!');
+            this.model = {
+                parkingID: null,
+                firstName: null,
+                lastName: null,
+                time: undefined
+            };
         }
     }
 }
