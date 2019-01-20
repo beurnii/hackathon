@@ -2,8 +2,8 @@
     <h1>{{ title }}</h1>
 
     <div id="map-container">
-        <agm-map [latitude]="lat" [longitude]="lng">
-            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        <agm-map [zoom]="15" [latitude]="lat" [longitude]="lng">
+            <agm-marker *ngFor="let pos of positions | keyvalue"[latitude]="pos.value" [longitude]="pos.key"></agm-marker>
         </agm-map>
     </div>
 
