@@ -29,4 +29,8 @@ export class SocketServerService {
     public reservation(parkingSpot: Document): void {
         this.io.emit('reservation', parkingSpot);
     }
+
+    public reservationOverNotif(id: string): void {
+      this.io.emit('reservationOverNotif', id);
+    }
 }
