@@ -42,12 +42,18 @@ export class RoutesParkingData extends WebService {
 
         router.post('/reservationAuto/:id/', (req, res) => {
            this.mongoDB.model.findOneAndUpdate({sNoPlace: req.params.id}, {$set: {Occupation: 1}})
-               .then((parkingSpot: Document) => {res.status(OK_STATUS).json(parkingSpot);});
+               .then((parkingSpot: Document) => {
+                   this.socket.reservation(req.params.id);
+                   res.status(OK_STATUS).json(parkingSpot);
+               });
         });
 
         router.post('/liberationAuto/:id/', (req, res) => {
             this.mongoDB.model.findOneAndUpdate({sNoPlace: req.params.id}, {$set: {Occupation: 0}})
-                .then((parkingSpot: Document) => {res.status(OK_STATUS).json(parkingSpot);});
+                .then((parkingSpot: Document) => {
+                    this.socket.reservationOver(req.params.id);
+                    res.status(OK_STATUS).json(parkingSpot);
+                });
         });
 
         return router;
