@@ -26,7 +26,9 @@ export class RoutesParkingData extends WebService {
         });
 
         router.post('/reservation/:id', (req: Request, res: Response) => {
-            this.socket.sendReservation(req.params.id);
+            this.mongoDB.model.findOneAndUpdate({ sNoPlace: req.params.id }, {$set: { Occupation: 1 }}).then((s) => {
+                res.status(200).json(s);
+            });
         });
 
         return router;

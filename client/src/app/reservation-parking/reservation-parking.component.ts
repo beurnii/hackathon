@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-// import { WebRequestService } from '../web-request.service';
+import { WebRequestService } from '../web-request.service';
 import { SocketClientService } from '../socket.io-client/socket.io-client.service';
 
 export interface Reservation {
@@ -21,7 +21,7 @@ export class ReservationParkingComponent {
     // tslint:disable-next-line:no-any
     public model: Reservation;
 
-    public constructor(/*private _webRequest: WebRequestService,*/
+    public constructor(private _webRequest: WebRequestService,
                        private socket: SocketClientService) {
         this.model = {
             parkingID: null,
@@ -34,6 +34,6 @@ export class ReservationParkingComponent {
     public onSubmit(): void {
         this.model.parkingID = this.parkingID;
         this.socket.socket.emit('reservation', this.parkingID);
-        // this._webRequest.makeReservation(this.model);
+        this._webRequest.makeReservation(this.model);
     }
 }
