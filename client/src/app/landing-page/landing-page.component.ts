@@ -17,8 +17,8 @@ export class LandingPageComponent {
     public noUniqueParking: string;
 
     public constructor(
-        private _router: Router,
-        private _dataService: DataService) {
+            private _router: Router,
+            private _dataService: DataService) {
         this.positionReservation = new Map<string, Array<number>>();
         this.getLocation();
         this.noUniqueParking = null;

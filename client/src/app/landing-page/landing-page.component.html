@@ -3,7 +3,9 @@
     <div id="map-container">
         <agm-map [zoom]="15" [latitude]="lat" [longitude]="lng">
             <agm-marker *ngFor="let pos of positions | keyvalue" (markerClick)="onMarkerClick(pos.key, pos.value)" 
-            [latitude]="pos.value[0]" [longitude]="pos.value[1]" [iconUrl]="positionReservation.has(pos.key) ? 'https://storage.googleapis.com/support-kms-prod/SNP_2752129_en_v0' : 'https://storage.googleapis.com/support-kms-prod/SNP_2752125_en_v0'"></agm-marker>
+                [latitude]="pos.value[0]" [longitude]="pos.value[1]" 
+                [iconUrl]="positionReservation.has(pos.key) ? 'https://storage.googleapis.com/support-kms-prod/SNP_2752129_en_v0' : 'https://storage.googleapis.com/support-kms-prod/SNP_2752125_en_v0'">
+            </agm-marker>
         </agm-map>
     </div>
 
