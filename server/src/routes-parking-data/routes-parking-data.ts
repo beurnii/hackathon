@@ -1,7 +1,10 @@
 import { injectable } from 'inversify';
 import { WebService } from '../WebService';
 import { Router, Request, Response } from 'express';
-const csv = require('csvtojson');
+// tslint:disable-next-line:no-any
+const csv: any = require('csvtojson');
+
+const STATUS_OK: number = 200;
 
 @injectable()
 export class RoutesParkingData extends WebService {
@@ -19,13 +22,14 @@ export class RoutesParkingData extends WebService {
     router.get('/getParkingData', (req: Request, res: Response) => {
       csv()
       .fromFile('./Places.csv')
+      // tslint:disable-next-line:no-any
       .then((jsonObj: any) => {
-        res.status(200).json(jsonObj);
+        res.status(STATUS_OK).json(jsonObj);
       });
     });
 
     router.post('/reservation/:id', (req: Request, res: Response) => {
-        // res.send("Requete de reservation recu avec l'ID " + req.params.id);
+        // tslint:disable-next-line:no-console
         console.log("Requete de reservation recu avec l'ID " + req.params.id);
     });
 

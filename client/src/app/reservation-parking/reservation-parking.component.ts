@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DataService } from '../landing-page/data.service';
+import { WebRequestService } from '../web-request.service';
 
 export interface Reservation {
     parkingID: string;
@@ -20,7 +20,7 @@ export class ReservationParkingComponent implements OnInit {
     // tslint:disable-next-line:no-any
     public model: Reservation;
 
-    public constructor(private _dataService: DataService) {
+    public constructor(private _webRequest: WebRequestService) {
         this.model = {
             parkingID: null,
             firstName: null,
@@ -34,7 +34,8 @@ export class ReservationParkingComponent implements OnInit {
     }
 
     public onSubmit(): void {
+        // tslint:disable-next-line:no-console
         console.log('SUCCESS!! :-)\n\n' + JSON.stringify(this.model));
-        this._dataService.makeReservation(this.model);
+        this._webRequest.makeReservation(this.model);
     }
 }
