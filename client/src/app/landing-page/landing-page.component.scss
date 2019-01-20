@@ -14,6 +14,32 @@ html {
         margin-top: 5%;
     }
 
+    .hourglass {
+        width: 200px;
+        height: 200px;
+        transition: .5s ease-in-out;
+        animation: loaderAnim 1s infinite;
+        background:
+            conic-gradient(
+                from 90deg,
+                transparent 12.5%, #b3cde0 12.5%,
+                #7367F0 37.5%, transparent 37.5%,
+                transparent 62.5%, #7367F0 62.5%,
+                #b3cde0 87.5%, transparent 87.5%
+            )
+            50% 50% / 32% 50%
+            no-repeat;
+    
+    }
+    @keyframes loaderAnim{
+        0%{
+            transform: rotate(0);
+        }
+        100%{
+            transform:rotate(360deg);
+        }
+    }
+
     #map-container {
         height: 60%;
         width: 100%;

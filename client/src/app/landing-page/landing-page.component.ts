@@ -60,7 +60,7 @@ export class LandingPageComponent implements OnInit {
         }
     }
 
-    public async loadingPlaces(): Promise<void> {
+    public async loadingPlaces() {
         this.positions = new Map<string, Array<number>>();
 
         if (this.data === undefined) {
