@@ -9,6 +9,8 @@ import { WebService } from './WebService';
 import { RoutesForm } from './RoutesForm';
 import Types from './Types';
 import { RoutesParkingData } from './routes-parking-data/routes-parking-data';
+import { SocketServerService } from './socket-io.service';
+import { Server } from 'http';
 
 @injectable()
 export class App {
@@ -18,7 +20,8 @@ export class App {
     private app: express.Application;
 
     public constructor(@inject(Types.RoutesForm) private routeForm: RoutesForm,
-                       @inject(Types.RoutesParkingData) private routesParkingData: RoutesParkingData) {
+                       @inject(Types.RoutesParkingData) private routesParkingData: RoutesParkingData,
+                       @inject(Types.SocketServerService) private socket: SocketServerService) {
         this.app = express();
     }
 
@@ -26,7 +29,7 @@ export class App {
         this.middlewaresConfigs();
 
         const port: number | string = process.env.PORT || this.defaultPort;
-        this.app.listen(port, (err: Error) => {
+        const server: Server = this.app.listen(port, (err: Error) => {
             if (err) {
                 // tslint:disable-next-line:no-console
                 return console.log(err);
@@ -35,6 +38,8 @@ export class App {
             // tslint:disable-next-line:no-console
             return console.log('Server is listening on port ' + port);
         });
+
+        this.socket.init(server);
 
         this.mountRoutes();
     }

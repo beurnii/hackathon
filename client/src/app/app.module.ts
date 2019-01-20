@@ -1,18 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatCardModule, MatIconModule, MatToolbarModule, MatButtonModule, MatSidenavModule } from '@angular/material';
+import { MatCardModule, MatIconModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatDividerModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { TopMenuComponent } from './common/top-menu/top-menu.component';
 import { FooterComponent } from './common/footer/footer.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
-
 import { FormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
-import { DataComponent } from './data/data.component';
 import { HttpClientModule } from '@angular/common/http';
-import { DataService } from './data/data.service';
+import { DataService } from './landing-page/data.service';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { ReservationParkingComponent } from './reservation-parking/reservation-parking.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 @NgModule({
     declarations: [
@@ -20,7 +20,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
         TopMenuComponent,
         FooterComponent,
         LandingPageComponent,
-        DataComponent
+        ReservationParkingComponent,
+        AboutUsComponent
     ],
     imports: [
         BrowserModule,
@@ -32,10 +33,11 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
         MatButtonModule,
         AppRoutingModule,
         FormsModule,
+        MatDividerModule,
         HttpClientModule,
         AgmCoreModule.forRoot({
             apiKey: 'AIzaSyA7JRDXYs52tiEAC3fyJ3qdYnnXZtD1MsM'
-        })
+        }),
     ],
     providers: [DataService],
     bootstrap: [AppComponent]

@@ -1,5 +1,7 @@
 export default {
     RoutesForm: Symbol('RoutesForm'),
 
-    RoutesParkingData: Symbol('RoutesParkingData')
+    RoutesParkingData: Symbol('RoutesParkingData'),
+
+    SocketServerService: Symbol('SocketServerService'),
 };
