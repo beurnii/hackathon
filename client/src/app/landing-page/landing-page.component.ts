@@ -46,6 +46,14 @@ export class LandingPageComponent implements OnInit  {
         }, 500);
     }
 
+    public onMarkerClick(lat: number, lng: number): void {
+        this.data.forEach((d) => {
+            if ((lat === d.nPositionCentreLatitude) && (lng === d.nPositionCentreLongitude)) {
+                console.log('selected');
+            }
+        });
+    }
+
     private getLocation(): void {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition((pos) => {
@@ -54,4 +62,5 @@ export class LandingPageComponent implements OnInit  {
             });
         }
     }
+
 }
