@@ -1,9 +1,9 @@
 <div id="landing-page-container">
-    <h1>{{ title }}</h1>
 
     <div id="map-container">
         <agm-map [zoom]="15" [latitude]="lat" [longitude]="lng" (boundsChange)="checkMarkersInBounds($event)">
-            <agm-marker *ngFor="let pos of positions | keyvalue" (markerClick)="onMarkerClick(pos.value, pos.key)" [latitude]="pos.value" [longitude]="pos.key"></agm-marker>
+            <agm-marker *ngFor="let pos of positions | keyvalue" (markerClick)="onMarkerClick(pos.value, pos.key)" 
+            [latitude]="pos.value" [longitude]="pos.key" [iconUrl]="reservation.has(pos) ? 'http://maps.google.com/mapfiles/ms/icons/green-dot.png' : 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'"></agm-marker>
         </agm-map>
     </div>
 

@@ -11,6 +11,7 @@ export class LandingPageComponent implements OnInit  {
     // tslint:disable-next-line:no-any
     protected data: Array<any>;
     public positions: Map<number, number>;
+    public reservation: Map<number, number>;
 
     public title: string = 'TITRE';
     public lat: number;
@@ -21,6 +22,7 @@ export class LandingPageComponent implements OnInit  {
 
     public constructor(private router: Router,
                        private dataService: DataService) {
+        this.reservation = new Map<number, number>();
         this.getLocation();
     }
 
@@ -48,6 +50,7 @@ export class LandingPageComponent implements OnInit  {
     public onMarkerClick(lat: number, lng: number): void {
         this.data.forEach((d) => {
             if ((lat === d.nPositionCentreLatitude) && (lng === d.nPositionCentreLongitude)) {
+                this.reservation.set(lat, lng);
                 console.log('selected');
             }
         });
