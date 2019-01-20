@@ -16,7 +16,7 @@ export class SocketServerService {
     }
 
     public sendReservation(id: string): void {
-      console.log("socket server");
+      console.log('ID: ', id);
       this.io.emit('reservation', id);
     }
 }

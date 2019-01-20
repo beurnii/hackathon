@@ -22,7 +22,7 @@ export class ReservationParkingComponent {
 
     public constructor(private _webRequest: WebRequestService) {
         this.model = {
-            parkingID: null,
+            parkingID: '1',
             firstName: null,
             lastName: null,
             time: undefined
@@ -30,7 +30,7 @@ export class ReservationParkingComponent {
     }
 
     public onSubmit(): void {
-        this.model.parkingID = this.parkingID;
+        // this.model.parkingID = this.parkingID;
         // tslint:disable-next-line:no-console
         console.log('SUCCESS!! :-)\n\n' + JSON.stringify(this.model));
         this._webRequest.makeReservation(this.model);

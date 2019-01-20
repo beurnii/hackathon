@@ -39,27 +39,6 @@ export class LandingPageComponent implements OnInit {
         this.router.navigateByUrl(uri);
     }
 
-
-        this.positions = new Map<number, number>();
-        if (this.data === undefined) {
-            this.positions = new Map<number, number>();
-            this.data = await this.dataService.getParkingData();
-        }
-        console.log(this.data[0]);
-
-        let timeout: number;
-        window.clearTimeout(timeout);
-        timeout = window.setTimeout(() => {
-            this.data.forEach((d) => {
-                const pos = {lat: parseFloat(d.nPositionCentreLatitude), lng: parseFloat(d.nPositionCentreLongitude)};
-                if (bounds.contains(pos) && !this.positions.has(d.nPositionCentreLongitude) && d.Occupation != 1) {
-                    this.positions.set(d.nPositionCentreLongitude as number, d.nPositionCentreLatitude as number);
-                }
-            });
-            console.log(this.positions.size);
-        }, 500);
-    }
-
     public onMarkerClick(lat: number, lng: number): void {
         this.data.forEach((d) => {
             if ((lat === d.nPositionCentreLatitude) && (lng === d.nPositionCentreLongitude)) {
@@ -84,8 +63,7 @@ export class LandingPageComponent implements OnInit {
         }
     }
 
-
-    public boundsChange(bounds: any){
+    public boundsChange(bounds: any) {
         this.bounds = bounds;
     }
 
