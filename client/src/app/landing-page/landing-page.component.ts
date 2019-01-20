@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from './data.service';
 import { SocketClientService } from '../socket.io-client/socket.io-client.service';
+import { MatDialog } from '@angular/material';
+import { NotificationComponent } from '../notification/notification.component';
 
 const DELAI_TIMER: number = 500;
 const MTL_LAT: number = 45.505331312;
@@ -32,7 +34,8 @@ export class LandingPageComponent implements OnInit {
 
     public constructor( private router: Router,
                         private dataService: DataService,
-                        private socket: SocketClientService) {
+                        private socket: SocketClientService,
+                        protected dialog: MatDialog) {
         this.hourglass = true;
         this.positionReservation = new Map<string, Array<number>>();
         this.reservationErrorMessage = '';
@@ -58,6 +61,19 @@ export class LandingPageComponent implements OnInit {
                 this.positionReservation.clear();
             }
             this.positions.set(parkingSpot.sNoPlace, [parkingSpot.nPositionCentreLatitude, parkingSpot.nPositionCentreLongitude]);
+        });
+
+        this.socket.socket.on('reservationOverNotif', (id: string) => {
+            if (this.positionReservation.has(id)) {
+                this.dialog.open(NotificationComponent, {
+                    height: '270px',
+                    width: '600px',
+                    data: {message: 'Your reservation is over in 5 minutes!',
+                           message2: 'Do you want to renew it?',
+                           reservationOver: 'true',
+                           id: id }
+                });
+            }
         });
     }
 

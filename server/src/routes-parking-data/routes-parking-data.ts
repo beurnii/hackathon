@@ -7,7 +7,7 @@ import { SocketServerService } from '../socket-io.service';
 import { Document } from 'mongoose';
 
 const OK_STATUS: number = 200;
-const TIMER_DELAY: number = 60000;
+const TIMER_DELAY: number = 1000;
 
 @injectable()
 export class RoutesParkingData extends WebService {
@@ -32,13 +32,15 @@ export class RoutesParkingData extends WebService {
         router.post('/reservation/:id/:time', (req: Request, res: Response) => {
             this.mongoDB.model.findOneAndUpdate({ sNoPlace: req.params.id }, { $set: { Occupation: 1 } }).then((parkingSpot: Document) => {
                 res.status(OK_STATUS).json(parkingSpot);
+                const timeout: number = (req.params.time - 5) * TIMER_DELAY;
                 setTimeout(() => {
-                    this.mongoDB.model.findOneAndUpdate({ sNoPlace: req.params.id }, { $set: { Occupation: 0 } })
-                        .then((parking: Document) => {
-                            this.socket.reservationOver(parking);
-                        });
+                    this.socket.reservationOverNotif(req.params.id);
+                    // this.mongoDB.model.findOneAndUpdate({ sNoPlace: req.params.id }, { $set: { Occupation: 0 } })
+                    //     .then((parking: Document) => {
+                    //         this.socket.reservationOver(parking);
+                    //     });
                 // tslint:disable-next-line:align
-                }, req.params.time * TIMER_DELAY);
+                }, timeout);
             });
         });
 
@@ -50,13 +52,24 @@ export class RoutesParkingData extends WebService {
                 });
         });
 
-        router.post('/liberationAuto/:id/', (req: Request, res: Response) => {
-            this.mongoDB.model.findOneAndUpdate({ sNoPlace: req.params.id }, { $set: { Occupation: 0 } })
-                .then((parkingSpot: Document) => {
-                    this.socket.reservationOver(parkingSpot);
-                    res.status(OK_STATUS).json(parkingSpot);
-                });
+        router.post('/reservationOverInFive/:id/', (req: Request, res: Response) => {
+            setTimeout(() => {
+              this.mongoDB.model.findOneAndUpdate({ sNoPlace: req.params.id }, { $set: { Occupation: 0 } })
+              .then((parkingSpot: Document) => {
+                  this.socket.reservationOver(parkingSpot);
+                  res.status(OK_STATUS).json(parkingSpot);
+              });
+            }, 5000);
+
         });
+
+        router.post('/reservationOverInFive/:id/', (req: Request, res: Response) => {
+          this.mongoDB.model.findOneAndUpdate({ sNoPlace: req.params.id }, { $set: { Occupation: 1 } })
+              .then((parkingSpot: Document) => {
+                  this.socket.reservation(req.params.id);
+                  res.status(OK_STATUS).json(parkingSpot);
+              });
+      });
 
         return router;
     }
