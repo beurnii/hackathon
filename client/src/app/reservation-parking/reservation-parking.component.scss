@@ -12,6 +12,9 @@
     form {
         display: inline-block;
         width: 60%;
+        @media screen and (max-width: 600px) {
+            width: 85%;
+        }
         background-color: rgba(128, 128, 128, 0.05);
         border-radius: $border-radius-form;
         padding: 15px;
@@ -31,6 +34,9 @@
             .form-control {
                 display: block;
                 width: 300px;
+                @media screen and (max-width: 600px) {
+                    width: 85%;
+                }
                 margin-top: 5px;
                 margin: auto;
                 border-width: 1px;
