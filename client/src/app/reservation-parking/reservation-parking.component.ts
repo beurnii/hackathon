@@ -31,16 +31,12 @@ export class ReservationParkingComponent implements OnChanges {
         };
     }
 
-    public ngOnChanges(): void {
-        console.log("change");
-        this.errorNoParkingID = this.parkingID === null;
-        console.log(this.parkingID);
-    }
-
     public onSubmit(): void {
         this.model.parkingID = this.parkingID;
         // tslint:disable-next-line:no-console
-        console.log('SUCCESS!! :-)\n\n' + JSON.stringify(this.model));
-        this._webRequest.makeReservation(this.model);
+        if (this.parkingID) {
+            this._webRequest.makeReservation(this.model);
+            alert('Reservation successful!');
+        }
     }
 }

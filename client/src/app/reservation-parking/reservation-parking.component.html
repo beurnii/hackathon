@@ -3,7 +3,7 @@
     <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
         <div class="form-group">
             <label class="titre-label">Parking identifier : {{ parkingID }}</label>
-            <div *ngIf="!parkingID" class="invalid-parking-id">
+            <div *ngIf="!parkingID" class="invalid-field">
                 <div>You first need to select a parking spot.</div>
             </div>
         </div>
@@ -11,7 +11,7 @@
             <label class="titre-label" for="firstName">First Name</label>
             <input type="text" class="form-control" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel"
                 [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" required />
-            <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+            <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback invalid-field">
                 <div *ngIf="firstName.errors.required">First Name is required</div>
             </div>
         </div>
@@ -19,7 +19,7 @@
             <label class="titre-label" for="lastName">Last Name</label>
             <input type="text" class="form-control" name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel"
                 [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }" required />
-            <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
+            <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback invalid-field">
                 <div *ngIf="lastName.errors.required">Last Name is required</div>
             </div>
         </div>
@@ -36,7 +36,7 @@
                 <option value="105">105 minutes</option>
                 <option value="120">120 minutes</option>
             </select>
-            <div *ngIf="f.submitted && time.invalid" class="invalid-feedback">
+            <div *ngIf="f.submitted && time.invalid" class="invalid-feedback invalid-field">
                 <div *ngIf="time.errors.required">Time is required</div>
             </div>
         </div>
