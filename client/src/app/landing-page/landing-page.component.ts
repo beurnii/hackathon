@@ -19,7 +19,6 @@ export class LandingPageComponent implements OnInit {
     protected data: Array<any>;
     public positions: Map<string, Array<number>>;
     public positionReservation: Map<string, Array<number>>;
-    public reservationErrorMessage: string;
 
     public lat: number;
     public lng: number;
@@ -38,7 +37,6 @@ export class LandingPageComponent implements OnInit {
                         protected dialog: MatDialog) {
         this.hourglass = true;
         this.positionReservation = new Map<string, Array<number>>();
-        this.reservationErrorMessage = '';
         // this.getLocation();
         this.lat = MTL_LAT;
         this.lng = MTL_LNG;
@@ -47,11 +45,19 @@ export class LandingPageComponent implements OnInit {
         this.loadingPlaces();
     }
 
+    // tslint:disable-next-line:max-func-body-length
     private setSocketOnEvents(): void {
         this.socket.socket.on('reservation', (id: string) => {
             this.positions.delete(id);
             if (this.positionReservation.has(id)) {
-                this.reservationErrorMessage = 'Sorry! This parking spot has been taken';
+                this.dialog.open(NotificationComponent, {
+                    height: '170px',
+                    width: '500px',
+                    data: {message: 'Sorry! This parking spot has been taken.',
+                           message2: '',
+                           reservationOver: 'false',
+                           id: '' }
+                });
                 this.positionReservation.clear();
             }
         });
@@ -100,7 +106,6 @@ export class LandingPageComponent implements OnInit {
                 this.positionReservation.clear();
                 const arrayPosition: Array<number> = [lat, lng];
                 this.positionReservation.set(this.noUniqueParking, arrayPosition);
-                this.reservationErrorMessage = '';
 
                 this.scrollToForm();
             }

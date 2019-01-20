@@ -11,10 +11,9 @@
         </div>
     </div>
 
-    <p class='errorMessage'> {{ reservationErrorMessage }} </p>
     <app-reservation-parking *ngIf="!hourglass" id="reservation-container" [parkingID]="noUniqueParking"
         [parkingStreet]="parkingStreet"></app-reservation-parking>
-    
+
     <div *ngIf="!hourglass">
         <div id="pub-container">
             <a href="https://www.spotify.com/ca-en/"><img src="./../../assets/web-ad-spotify.gif" id="pub-img" alt="Loading" title="Loading"/></a>
