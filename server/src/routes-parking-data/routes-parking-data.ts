@@ -24,6 +24,10 @@ export class RoutesParkingData extends WebService {
       });
     });
 
+    router.put('/reservation/:id', (req: Request, res: Response) => {
+        res.send("Requete de reservation recu avec l'ID " + req.params.id);
+    });
+
     return router;
   }
 
