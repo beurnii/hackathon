@@ -3,6 +3,9 @@
     <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
         <div class="form-group">
             <label class="titre-label">Parking identifier : {{ parkingID }}</label>
+            <div *ngIf="!parkingID" class="invalid-parking-id">
+                <div>You first need to select a parking spot.</div>
+            </div>
         </div>
         <div class="form-group">
             <label class="titre-label" for="firstName">First Name</label>

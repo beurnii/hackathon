@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { WebRequestService } from '../web-request.service';
 
 export interface Reservation {
@@ -13,20 +13,28 @@ export interface Reservation {
     templateUrl: './reservation-parking.component.html',
     styleUrls: ['./reservation-parking.component.scss'],
 })
-export class ReservationParkingComponent {
+export class ReservationParkingComponent implements OnChanges {
     @Input()
     public parkingID: string;
-
     // tslint:disable-next-line:no-any
     public model: Reservation;
+    public errorNoParkingID: boolean;
 
     public constructor(private _webRequest: WebRequestService) {
+        this.parkingID = undefined;
+        this.errorNoParkingID = true;
         this.model = {
             parkingID: null,
             firstName: null,
             lastName: null,
             time: undefined
         };
+    }
+
+    public ngOnChanges(): void {
+        console.log("change");
+        this.errorNoParkingID = this.parkingID === null;
+        console.log(this.parkingID);
     }
 
     public onSubmit(): void {
