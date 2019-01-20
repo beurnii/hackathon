@@ -52,8 +52,8 @@ export class LandingPageComponent implements OnInit  {
     public onMarkerClick(lat: number, lng: number): void {
         this.data.forEach((d) => {
             if ((lat === d.nPositionCentreLatitude) && (lng === d.nPositionCentreLongitude)) {
+                this.reservation.clear();
                 this.reservation.set(lat, lng);
-                console.log('selected');
             }
         });
     }
