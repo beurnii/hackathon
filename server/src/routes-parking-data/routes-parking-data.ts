@@ -23,7 +23,7 @@ export class RoutesParkingData extends WebService {
         const router: Router = Router();
 
         router.get('/getParkingData', (req: Request, res: Response) => {
-            this.mongoDB.model.find((err: Error, data: Document) => {
+            this.mongoDB.model.find({ Occupation: 0 }, (err: Error, data: Document) => {
                 res.status(OK_STATUS).json(data);
             });
         });
