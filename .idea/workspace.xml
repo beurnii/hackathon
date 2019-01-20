@@ -3,7 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="ce059903-af94-4712-88cb-fd17a44aa418" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/landing-page/landing-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/landing-page/landing-page.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/protractor.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/protractor.conf.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/landing-page/data.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/landing-page/data.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/socket.io-client/socket.io-client.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/socket.io-client/socket.io-client.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/web-request.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/web-request.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/.vscode/launch.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -15,25 +21,25 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.37374803">
+    <splitter split-orientation="horizontal" split-proportion="0.1388889">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/src/app/landing-page/landing-page.component.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="60">
-                  <caret line="3" column="62" selection-start-line="3" selection-start-column="62" selection-end-line="3" selection-end-column="62" />
+                  <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/server/src/routes-parking-data/routes-parking-data.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="340">
-                  <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
+                <state relative-caret-position="1060">
+                  <caret line="53" selection-start-line="53" selection-end-line="53" />
                   <folding>
-                    <element signature="e#0#39#0" expanded="true" />
+                    <element signature="e#0#47#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -42,10 +48,19 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/src/app/landing-page/landing-page.component.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-59">
-                  <caret line="36" selection-start-line="36" selection-end-line="36" />
+                <state relative-caret-position="1380">
+                  <caret line="72" selection-start-line="72" selection-end-line="72" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/server/src/socket-io.service.ts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="520">
+                  <caret line="29" column="47" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="47" />
                   <folding>
-                    <element signature="e#0#50#0" expanded="true" />
+                    <element signature="e#0#29#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -54,11 +69,11 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/server/src/BD/MongoDB.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="220">
+                <state relative-caret-position="200">
                   <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
                   <folding>
                     <element signature="e#0#61#0" expanded="true" />
@@ -67,14 +82,46 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/src/app/landing-page/landing-page.component.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="364">
-                  <caret line="55" column="45" lean-forward="true" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="45" />
-                  <folding>
-                    <element signature="e#0#50#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="664">
+                  <caret line="72" column="36" selection-start-line="72" selection-start-column="36" selection-end-line="72" selection-end-column="36" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/client/src/tsconfig.app.json">
+              <provider selected="true" editor-type-id="text-editor" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/client/package.json">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="120">
+                  <caret line="6" column="46" lean-forward="true" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/server/package.json">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="580">
+                  <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/client/README.md">
+              <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+                <state split_layout="SPLIT">
+                  <first_editor relative-caret-position="120">
+                    <caret line="6" column="53" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
+                  </first_editor>
+                  <second_editor />
                 </state>
               </provider>
             </entry>
@@ -86,6 +133,9 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>apiKey</find>
+      <find>has</find>
+      <find>3000</find>
+      <find>localhost</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -99,9 +149,11 @@
         <option value="$PROJECT_DIR$/client/src/app/app.component.html" />
         <option value="$PROJECT_DIR$/server/.editorconfig" />
         <option value="$PROJECT_DIR$/server/src/BD/MongoDB.ts" />
-        <option value="$PROJECT_DIR$/server/src/routes-parking-data/routes-parking-data.ts" />
         <option value="$PROJECT_DIR$/client/src/app/landing-page/landing-page.component.html" />
         <option value="$PROJECT_DIR$/client/src/app/landing-page/landing-page.component.ts" />
+        <option value="$PROJECT_DIR$/server/src/socket-io.service.ts" />
+        <option value="$PROJECT_DIR$/server/src/routes-parking-data/routes-parking-data.ts" />
+        <option value="$PROJECT_DIR$/client/package.json" />
       </list>
     </option>
   </component>
@@ -157,13 +209,6 @@
               <item name="hackathon" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="BD" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hackathon" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hackathon" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="routes-parking-data" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -212,17 +257,18 @@
       <updated>1547919891036</updated>
       <workItem from="1547919892255" duration="1912000" />
       <workItem from="1547943264589" duration="1724000" />
+      <workItem from="1547990803309" duration="979000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10284000" />
+    <option name="totallyTimeSpent" value="13943000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1933" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" weight="0.20295203" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20295203" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -266,13 +312,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/server/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/app/data/data.component.ts" />
     <entry file="file://$PROJECT_DIR$/client/src/app/app.component.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -316,9 +355,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/landing-page/landing-page.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/socket-io.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="29" column="47" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/routes-parking-data/routes-parking-data.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1060">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server/src/BD/MongoDB.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
+        <state relative-caret-position="200">
           <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
           <folding>
             <element signature="e#0#61#0" expanded="true" />
@@ -326,30 +392,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/routes-parking-data/routes-parking-data.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/landing-page/landing-page.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="62" selection-start-line="3" selection-start-column="62" selection-end-line="3" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/app/landing-page/landing-page.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="55" column="45" lean-forward="true" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="664">
+          <caret line="72" column="36" selection-start-line="72" selection-start-column="36" selection-end-line="72" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/tsconfig.app.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="46" lean-forward="true" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="580">
+          <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="120">
+            <caret line="6" column="53" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
