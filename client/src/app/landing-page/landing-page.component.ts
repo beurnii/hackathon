@@ -4,6 +4,8 @@ import { DataService } from './data.service';
 import { SocketClientService } from '../socket.io-client/socket.io-client.service';
 
 const DELAI_TIMER: number = 500;
+const MTL_LAT: number = 45.505331312;
+const MTL_LNG: number = -73.55249779;
 
 @Component({
     selector: 'app-landing-page',
@@ -34,7 +36,9 @@ export class LandingPageComponent implements OnInit {
         this.hourglass = true;
         this.positionReservation = new Map<string, Array<number>>();
         this.reservationErrorMessage = '';
-        this.getLocation();
+        // this.getLocation();
+        this.lat = MTL_LAT;
+        this.lng = MTL_LNG;
         this.noUniqueParking = null;
         this.parkingStreet = null;
         this.loadingPlaces();
@@ -57,14 +61,14 @@ export class LandingPageComponent implements OnInit {
         });
     }
 
-    private getLocation(): void {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition((pos) => {
-                this.lat = pos.coords.latitude;
-                this.lng = pos.coords.longitude;
-            });
-        }
-    }
+    // private getLocation(): void {
+    //     if (navigator.geolocation) {
+    //         navigator.geolocation.getCurrentPosition((pos) => {
+    //             this.lat = pos.coords.latitude;
+    //             this.lng = pos.coords.longitude;
+    //         });
+    //     }
+    // }
 
     public navigate(uri: string): void {
         this.router.navigateByUrl(uri);
