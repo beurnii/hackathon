@@ -2,6 +2,8 @@ import { Component, Input } from '@angular/core';
 import { WebRequestService } from '../web-request.service';
 import { SocketClientService } from '../socket.io-client/socket.io-client.service';
 import { NgForm } from '@angular/forms';
+import { MatDialog } from '@angular/material';
+import { NotificationComponent } from '../notification/notification.component';
 
 export interface Reservation {
     parkingID: string;
@@ -26,7 +28,8 @@ export class ReservationParkingComponent {
     public errorNoParkingID: boolean;
 
     public constructor(private _webRequest: WebRequestService,
-                       private socket: SocketClientService) {
+                       private socket: SocketClientService,
+                       protected dialog: MatDialog) {
         this.parkingID = undefined;
         this.parkingStreet = '';
         this.errorNoParkingID = true;
@@ -42,8 +45,15 @@ export class ReservationParkingComponent {
         this.model.parkingID = this.parkingID;
         if (this.parkingID) {
             this.socket.socket.emit('reservation', this.parkingID);
-            this._webRequest.makeReservation(this.model);
-            alert('Reservation successful!');
+            this._webRequest.makeReservation(this.model.parkingID, this.model.time);
+            this.dialog.open(NotificationComponent, {
+                height: '170px',
+                width: '500px',
+                data: {message: 'Reservation successful!',
+                       message2: '',
+                       reservationOver: 'false',
+                       id: ''}
+            });
             f.reset();
         }
     }
