@@ -7,6 +7,7 @@ import { SocketServerService } from '../socket-io.service';
 import { Document } from 'mongoose';
 
 const OK_STATUS: number = 200;
+const TIMER_DELAY: number = 6000;
 
 @injectable()
 export class RoutesParkingData extends WebService {
@@ -37,7 +38,7 @@ export class RoutesParkingData extends WebService {
                             this.socket.reservationOver(parking);
                         });
                 // tslint:disable-next-line:align
-                }, req.params.time * 6000);
+                }, req.params.time * TIMER_DELAY);
             });
         });
 
