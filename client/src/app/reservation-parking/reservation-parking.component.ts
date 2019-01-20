@@ -18,12 +18,10 @@ export interface Reservation {
 export class ReservationParkingComponent {
     @Input()
     public parkingID: string;
-
     // tslint:disable-next-line:no-input-rename
     @Input('parkingStreet')
     public parkingStreet: string;
 
-    // tslint:disable-next-line:no-any
     public model: Reservation;
     public errorNoParkingID: boolean;
 
@@ -42,7 +40,6 @@ export class ReservationParkingComponent {
 
     public onSubmit(f: NgForm): void {
         this.model.parkingID = this.parkingID;
-        // tslint:disable-next-line:no-console
         if (this.parkingID) {
             this.socket.socket.emit('reservation', this.parkingID);
             this._webRequest.makeReservation(this.model);
