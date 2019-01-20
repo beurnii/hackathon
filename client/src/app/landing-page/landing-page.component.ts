@@ -17,6 +17,8 @@ export class LandingPageComponent implements OnInit  {
     public lat: number;
     public lng: number;
 
+    public noUniqueParking: string;
+
     public async ngOnInit(): Promise<void> {
     }
 
@@ -24,6 +26,7 @@ export class LandingPageComponent implements OnInit  {
                        private dataService: DataService) {
         this.reservation = new Map<number, number>();
         this.getLocation();
+        this.noUniqueParking = null;
     }
 
     public navigate(uri: string): void {
@@ -56,6 +59,8 @@ export class LandingPageComponent implements OnInit  {
     public onMarkerClick(lat: number, lng: number): void {
         this.data.forEach((d) => {
             if ((lat === d.nPositionCentreLatitude) && (lng === d.nPositionCentreLongitude)) {
+                this.noUniqueParking = d.sNoPlace;
+                console.log(this.noUniqueParking);
                 this.reservation.clear();
                 this.reservation.set(lat, lng);
 
