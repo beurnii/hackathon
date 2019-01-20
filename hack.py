@@ -39,5 +39,5 @@ while True: # Run forever
 	
 	print('state: ' + str(state))
 	print('GPIO: ' + str(GPIO.input(10)))
-	time.sleep(2)
+	time.sleep(4)
 
