@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {DataService} from './data.service';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { DataService } from './data.service';
 
 @Component({
     selector: 'app-landing-page',
@@ -13,19 +13,22 @@ export class LandingPageComponent implements OnInit {
     public positions: Map<number, number>;
     public reservation: Map<number, number>;
 
-    public title: string = 'TITRE';
     public lat: number;
     public lng: number;
 
     private bounds: any;
 
+    public noUniqueParking: string;
+
     public async ngOnInit(): Promise<void> {
     }
 
-    public constructor(private router: Router,
-                       private dataService: DataService) {
+    public constructor(
+        private router: Router,
+        private dataService: DataService) {
         this.reservation = new Map<number, number>();
         this.getLocation();
+        this.noUniqueParking = null;
     }
 
     public navigate(uri: string): void {
@@ -37,8 +40,14 @@ export class LandingPageComponent implements OnInit {
     public onMarkerClick(lat: number, lng: number): void {
         this.data.forEach((d) => {
             if ((lat === d.nPositionCentreLatitude) && (lng === d.nPositionCentreLongitude)) {
+                this.noUniqueParking = d.sNoPlace;
+                console.log(this.noUniqueParking);
                 this.reservation.clear();
                 this.reservation.set(lat, lng);
+
+                document.querySelector('#reservation-container').scrollIntoView({
+                    behavior: 'smooth'
+                });
             }
         });
     }
