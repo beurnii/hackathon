@@ -13,6 +13,7 @@ import { DataService } from './landing-page/data.service';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { ReservationParkingComponent } from './reservation-parking/reservation-parking.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { ParkingInfoComponent } from './parking-info/parking-info.component';
 
 @NgModule({
     declarations: [
@@ -21,7 +22,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
         FooterComponent,
         LandingPageComponent,
         ReservationParkingComponent,
-        AboutUsComponent
+        AboutUsComponent,
+        ParkingInfoComponent
     ],
     imports: [
         BrowserModule,
