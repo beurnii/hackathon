@@ -63,7 +63,7 @@ export class LandingPageComponent implements OnInit {
     public async loadingPlaces(): Promise<void> {
         this.positions = new Map<string, Array<number>>();
 
-        if (this.data === undefined) {
+        if (!this.data) {
             this.data = await this.dataService.getParkingData();
         }
 
