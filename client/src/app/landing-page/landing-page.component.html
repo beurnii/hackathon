@@ -9,5 +9,6 @@
         </div>
     </div>
 
+    <p class='errorMessage'> {{ reservationErrorMessage }} </p>
     <app-reservation-parking *ngIf="!hourglass" id="reservation-container" [parkingID]="noUniqueParking"></app-reservation-parking>
 </div>
