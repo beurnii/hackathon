@@ -7,7 +7,7 @@ import {DataService} from './data.service';
     templateUrl: './landing-page.component.html',
     styleUrls: ['./landing-page.component.scss'],
 })
-export class LandingPageComponent implements OnInit  {
+export class LandingPageComponent implements OnInit {
     // tslint:disable-next-line:no-any
     protected data: Array<any>;
     public positions: Map<number, number>;
@@ -16,6 +16,8 @@ export class LandingPageComponent implements OnInit  {
     public title: string = 'TITRE';
     public lat: number;
     public lng: number;
+
+    private bounds: any;
 
     public async ngOnInit(): Promise<void> {
     }
@@ -30,29 +32,7 @@ export class LandingPageComponent implements OnInit  {
         this.router.navigateByUrl(uri);
     }
 
-    public async checkMarkersInBounds(bounds: any): Promise<void> {
 
-
-        this.positions = new Map<number, number>();
-        if (this.data === undefined) {
-            this.positions = new Map<number, number>();
-            this.data = await this.dataService.getParkingData();
-            console.log('Done');
-        }
-        console.log(this.data[0]);
-
-        let timeout: number;
-        window.clearTimeout(timeout);
-        timeout = window.setTimeout(() => {
-            this.data.forEach((d) => {
-                const pos = {lat: parseFloat(d.nPositionCentreLatitude), lng: parseFloat(d.nPositionCentreLongitude)};
-                if (bounds.contains(pos) && !this.positions.has(d.nPositionCentreLongitude) && d.Occupation != 1) {
-                    this.positions.set(d.nPositionCentreLongitude as number, d.nPositionCentreLatitude as number);
-                }
-            });
-            console.log(this.positions.size);
-        }, 500);
-    }
 
     public onMarkerClick(lat: number, lng: number): void {
         this.data.forEach((d) => {
@@ -72,4 +52,25 @@ export class LandingPageComponent implements OnInit  {
         }
     }
 
+
+    public boundsChange(bounds: any){
+        this.bounds = bounds;
+    }
+
+    public async idle() {
+        this.positions = new Map<number, number>();
+
+        if (this.data === undefined) {
+            this.data = await this.dataService.getParkingData();
+        }
+        this.data.forEach((d) => {
+            const pos = {
+                lat: parseFloat(d.nPositionCentreLatitude),
+                lng: parseFloat(d.nPositionCentreLongitude)
+            };
+            if (this.bounds.contains(pos) && !this.positions.has(d.nPositionCentreLongitude) && d.Occupation != 1) {
+                this.positions.set(d.nPositionCentreLongitude as number, d.nPositionCentreLatitude as number);
+            }
+        });
+    }
 }
