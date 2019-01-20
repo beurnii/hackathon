@@ -19,9 +19,11 @@ export class LandingPageComponent implements OnInit  {
     public async ngOnInit(): Promise<void> {
         this.positions = new Map<number, number>();
         this.data = await this.dataService.getParkingData();
+        console.log(this.data[0]);
         this.data.forEach((d) => {
-            this.positions.set(d.nPositionCentreLongitude as number, d.nPositionCentreLatitude as number);
+            if (d.Occupation != 1) this.positions.set(d.nPositionCentreLongitude as number, d.nPositionCentreLatitude as number);
         });
+        console.log(this.positions.size);
     }
 
     public constructor(private router: Router,
