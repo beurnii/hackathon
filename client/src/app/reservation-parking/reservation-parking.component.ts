@@ -17,7 +17,7 @@ export class ReservationParkingComponent implements OnInit {
     public parkingID: string;
 
     // tslint:disable-next-line:no-any
-    private model: Reservation;
+    protected model: Reservation;
 
     public constructor() {
         this.model = {
