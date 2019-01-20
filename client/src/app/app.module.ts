@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatCardModule, MatIconModule, MatToolbarModule, MatButtonModule, MatSidenavModule } from '@angular/material';
+import { MatCardModule, MatIconModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatDividerModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { TopMenuComponent } from './common/top-menu/top-menu.component';
 import { FooterComponent } from './common/footer/footer.component';
@@ -33,6 +33,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
         MatButtonModule,
         AppRoutingModule,
         FormsModule,
+        MatDividerModule,
         HttpClientModule,
         AgmCoreModule.forRoot({
             apiKey: 'AIzaSyA7JRDXYs52tiEAC3fyJ3qdYnnXZtD1MsM'

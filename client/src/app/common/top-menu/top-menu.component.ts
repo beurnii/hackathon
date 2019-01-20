@@ -12,12 +12,12 @@ export class TopMenuComponent {
 
     public constructor(private router: Router) { }
 
-    protected onAboutUsClick(): void {
+    public onAboutUsClick(): void {
         this.router.navigateByUrl('/about-us')
         .catch(() => ErrorHandler);
     }
 
-    protected onHeaderClick(): void {
+    public onHeaderClick(): void {
         this.router.navigateByUrl('')
         .catch(() => ErrorHandler);
     }
