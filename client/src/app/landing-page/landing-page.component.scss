@@ -8,7 +8,7 @@ html {
     height: calc(100% - #{$top-menu-height});
     width: 100%;
     overflow: scroll;
-    color: #b3cde0;
+    color: #7b96aa;
 
     .title {
         text-align: center;
@@ -21,13 +21,13 @@ html {
         opacity: 0.5;
     }
     @-webkit-keyframes pulsate {
-        0% { 
+        0% {
             opacity: 0.75;
         }
         50% {
             opacity: 1.0;
         }
-        100% { 
+        100% {
             opacity: 0.75;
         }
     }
@@ -51,7 +51,7 @@ html {
             )
             50% 50% / 32% 50%
             no-repeat;
-    
+
     }
     @keyframes loaderAnim{
         0%{
