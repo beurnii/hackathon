@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { WebRequestService } from '../web-request.service';
 
 export interface Reservation {
@@ -11,7 +11,7 @@ export interface Reservation {
 @Component({
     selector: 'app-reservation-parking',
     templateUrl: './reservation-parking.component.html',
-    styleUrls: ['./reservation-parking.component.scss']
+    styleUrls: ['./reservation-parking.component.scss'],
 })
 export class ReservationParkingComponent implements OnInit {
     @Input()
@@ -29,11 +29,8 @@ export class ReservationParkingComponent implements OnInit {
         };
     }
 
-    public ngOnInit(): void {
-        this.model.parkingID = this.parkingID;
-    }
-
     public onSubmit(): void {
+        this.model.parkingID = this.parkingID;
         // tslint:disable-next-line:no-console
         console.log('SUCCESS!! :-)\n\n' + JSON.stringify(this.model));
         this._webRequest.makeReservation(this.model);
