@@ -1,5 +1,5 @@
 <div id="landing-page-container">
-    <div><h1 class="title">Quick, choose your parking!</h1></div>
+    <div><h1 class="pulsate">Quick, choose your parking!</h1></div>
     <div id="map-container">
         <agm-map [zoom]="15" [latitude]="lat" [longitude]="lng" (boundsChange)="boundsChange($event)" (idle)="idle()">
             <agm-marker *ngFor="let pos of positions | keyvalue" (markerClick)="onMarkerClick(pos.value, pos.key)" 
