@@ -9,6 +9,6 @@ export class SocketClientService {
     public socket: SocketIOClient.Socket;
 
     public constructor() {
-        this.socket = io('http://localhost:3000');
+        this.socket = io('http://107.159.46.20:3000');
     }
 }

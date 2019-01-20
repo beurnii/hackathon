@@ -52,7 +52,7 @@ export class App {
         this.app.use(express.static(path.join(__dirname, '../client')));
         this.app.use(cors());
         this.app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
-            res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
+            res.header('Access-Control-Allow-Origin', 'http://107.159.46.20:4200');
             res.header('Access-Control-Allow-Credentials', 'true');
             res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
             res.header('Access-Control-Allow-Headers',
