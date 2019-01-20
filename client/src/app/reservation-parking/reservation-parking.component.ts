@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { WebRequestService } from '../web-request.service';
 import { DataService } from '../landing-page/data.service';
 
 export interface Reservation {

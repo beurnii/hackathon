@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {DataService} from './data.service';
+import { SocketClientService } from '../socket.io-client/socket.io-client.service';
 
 @Component({
     selector: 'app-landing-page',
@@ -17,6 +18,10 @@ export class LandingPageComponent implements OnInit  {
     public lng: number;
 
     public async ngOnInit(): Promise<void> {
+        this.socket.socket.on('allo', (data: any) => {
+            console.log(data.allo);
+        });
+
         this.positions = new Map<number, number>();
         this.data = await this.dataService.getParkingData();
         this.data.forEach((d) => {
@@ -25,7 +30,8 @@ export class LandingPageComponent implements OnInit  {
     }
 
     public constructor(private router: Router,
-                       private dataService: DataService) {
+                       private dataService: DataService,
+                       private socket: SocketClientService) {
         this.getLocation();
     }
 
