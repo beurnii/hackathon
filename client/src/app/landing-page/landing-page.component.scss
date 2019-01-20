@@ -9,31 +9,16 @@ html {
     width: 100%;
     overflow: scroll;
 
-    .pulsate {
+    .title {
         text-align: center;
-        margin-top: 3%;
-        color: #b3cde0;
-        -webkit-animation: pulsate 3s ease-out;
-        -webkit-animation-iteration-count: infinite; 
-        opacity: 0.5;
-    }
-    @-webkit-keyframes pulsate {
-        0% { 
-            opacity: 0.5;
-        }
-        50% { 
-            opacity: 1.0;
-        }
-        100% { 
-            opacity: 0.5;
-        }
+        margin-top: 5%;
     }
 
     #map-container {
         height: 60%;
         width: 100%;
         text-align: center;
-        margin-top: 2%;
+        margin-top: 5%;
         padding: 0;
 
         agm-map {
