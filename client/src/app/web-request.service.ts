@@ -12,6 +12,8 @@ export class WebRequestService {
     public constructor(private _http: HttpClient) { }
 
     public async makeReservation(reservation: Reservation): Promise<void> {
-        await this._http.put(BASE_URL + 'reservation/' + reservation.parkingID, reservation);
+        const url: string = BASE_URL + 'reservation/' + reservation.parkingID;
+        console.log(url);
+        await this._http.post(url, reservation);
     }
 }
