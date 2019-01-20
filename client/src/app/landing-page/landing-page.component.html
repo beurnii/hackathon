@@ -1,7 +1,7 @@
 <div id="landing-page-container">
     <div><h1 class="pulsate">Quick, choose your parking!</h1></div>
     <div id="map-container">
-        <agm-map [zoom]="15" [latitude]="lat" [longitude]="lng" (boundsChange)="boundsChange($event)" (idle)="idle()">
+        <agm-map [zoom]="15" [latitude]="lat" [longitude]="lng">
             <agm-marker *ngFor="let pos of positions | keyvalue" (markerClick)="onMarkerClick(pos.value, pos.key)" 
             [latitude]="pos.value" [longitude]="pos.key" [iconUrl]="reservation.has(pos.value) ? 'https://storage.googleapis.com/support-kms-prod/SNP_2752129_en_v0' : 'https://storage.googleapis.com/support-kms-prod/SNP_2752125_en_v0'"></agm-marker>
         </agm-map>

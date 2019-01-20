@@ -16,8 +16,6 @@ export class LandingPageComponent implements OnInit {
     public lat: number;
     public lng: number;
 
-    private bounds: any;
-
     public noUniqueParking: string;
 
     public async ngOnInit(): Promise<void> {
@@ -29,6 +27,7 @@ export class LandingPageComponent implements OnInit {
         this.reservation = new Map<number, number>();
         this.getLocation();
         this.noUniqueParking = null;
+        this.loadingPlaces();
     }
 
     public navigate(uri: string): void {
@@ -61,23 +60,14 @@ export class LandingPageComponent implements OnInit {
         }
     }
 
-
-    public boundsChange(bounds: any){
-        this.bounds = bounds;
-    }
-
-    public async idle() {
+    public async loadingPlaces() {
         this.positions = new Map<number, number>();
 
         if (this.data === undefined) {
             this.data = await this.dataService.getParkingData();
         }
         this.data.forEach((d) => {
-            const pos = {
-                lat: parseFloat(d.nPositionCentreLatitude),
-                lng: parseFloat(d.nPositionCentreLongitude)
-            };
-            if (this.bounds.contains(pos) && !this.positions.has(d.nPositionCentreLongitude) && d.Occupation != 1) {
+            if (d.Occupation != 1) {
                 this.positions.set(d.nPositionCentreLongitude as number, d.nPositionCentreLatitude as number);
             }
         });
