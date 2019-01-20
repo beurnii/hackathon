@@ -14,11 +14,14 @@ export class LandingPageComponent {
     public positionReservation: Map<string, Array<number>>;
     public lat: number;
     public lng: number;
+    public hourglass: Boolean;
+
     public noUniqueParking: string;
 
     public constructor(
-            private _router: Router,
-            private _dataService: DataService) {
+        private router: Router,
+        private dataService: DataService) {
+        this.hourglass = true;
         this.positionReservation = new Map<string, Array<number>>();
         this.getLocation();
         this.noUniqueParking = null;
@@ -26,7 +29,7 @@ export class LandingPageComponent {
     }
 
     public navigate(uri: string): void {
-        this._router.navigateByUrl(uri);
+        this.router.navigateByUrl(uri);
     }
 
     public onMarkerClick(id: string, position: Array<number>): void {
@@ -59,7 +62,7 @@ export class LandingPageComponent {
         this.positions = new Map<string, Array<number>>();
 
         if (!this.data) {
-            this.data = await this._dataService.getParkingData();
+            this.data = await this.dataService.getParkingData();
         }
 
         this.data.forEach((d) => {
@@ -68,5 +71,9 @@ export class LandingPageComponent {
                 this.positions.set(d.sNoPlace, arrayPosition);
             }
         });
+
+        setTimeout(() => {
+            this.hourglass = false;
+        }, 500);
     }
 }
