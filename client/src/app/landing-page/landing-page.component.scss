@@ -1,5 +1,9 @@
 @import './../variables.scss';
 
+html {
+    scroll-behavior: smooth;
+}
+
 #landing-page-container {
     height: calc(100% - #{$top-menu-height});
     width: 100%;

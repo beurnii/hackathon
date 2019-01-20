@@ -1,17 +1,15 @@
 import { injectable } from 'inversify';
 import { WebService } from '../WebService';
 import { Router, Request, Response } from 'express';
+import {MongoDB} from "../BD/MongoDB";
 // tslint:disable-next-line:no-any
-const csv: any = require('csvtojson');
-
-const STATUS_OK: number = 200;
 
 @injectable()
 export class RoutesParkingData extends WebService {
 
     public readonly mainRoute: string;
 
-    public constructor() {
+    public constructor(private mongoDB: MongoDB = new MongoDB()) {
         super();
         this.mainRoute = '';
     }
@@ -42,12 +40,9 @@ export class RoutesParkingData extends WebService {
         // a.save().then((err)=>{console.log(err)});
 
         router.get('/getParkingData', (req: Request, res: Response) => {
-            csv()
-                .fromFile('./Places.csv')
-                // tslint:disable-next-line:no-any
-                .then((jsonObj: any) => {
-                    res.status(STATUS_OK).json(jsonObj);
-                });
+            this.mongoDB.model.find((err, data) =>{
+                res.status(200).json(data);
+            });
         });
 
         router.post('/reservation/:id', (req: Request, res: Response) => {
