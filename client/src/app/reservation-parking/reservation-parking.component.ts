@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+interface Reservation {
+    parkingID: string;
+    firstName: string;
+    lastName: string;
+    time: number;
+}
 
 @Component({
     selector: 'app-reservation-parking',
@@ -6,14 +13,26 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./reservation-parking.component.scss']
 })
 export class ReservationParkingComponent implements OnInit {
+    @Input()
+    public parkingID: string;
+
     // tslint:disable-next-line:no-any
-    public model: any = {};
+    private model: Reservation;
 
-    public constructor() { }
+    public constructor() {
+        this.model = {
+            parkingID: null,
+            firstName: null,
+            lastName: null,
+            time: undefined
+        };
+    }
 
-    public ngOnInit(): void { }
+    public ngOnInit(): void {
+        this.model.parkingID = this.parkingID;
+    }
 
     public onSubmit(): void {
-        alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model));
+        console.log('SUCCESS!! :-)\n\n' + JSON.stringify(this.model));
     }
 }

@@ -34,7 +34,7 @@ import { ReservationParkingComponent } from './reservation-parking/reservation-p
         HttpClientModule,
         AgmCoreModule.forRoot({
             apiKey: 'AIzaSyA7JRDXYs52tiEAC3fyJ3qdYnnXZtD1MsM'
-        })
+        }),
     ],
     providers: [DataService],
     bootstrap: [AppComponent]
